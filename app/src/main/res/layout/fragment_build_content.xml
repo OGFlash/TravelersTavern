@@ -12,8 +12,8 @@
             android:id="@+id/edit_api"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:inputType="textEmailAddress"
-            android:hint="Enter email address"/>
+            android:inputType="text"
+            android:hint="Enter api call"/>
         <Button
             android:id="@+id/queryButton"
             android:layout_width="wrap_content"
