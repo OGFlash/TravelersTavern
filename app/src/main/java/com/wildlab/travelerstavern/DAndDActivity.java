@@ -1,30 +1,46 @@
 package com.wildlab.travelerstavern;
 
 
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.TabLayout;
 import android.support.v4.view.ViewPager;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
+import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.EditText;
 import android.widget.Toast;
 
 import com.wildlab.travelerstavern.utils.BuildFragment;
+import com.wildlab.travelerstavern.utils.Character;
+import com.wildlab.travelerstavern.utils.CharacterAdapter;
 import com.wildlab.travelerstavern.utils.CreateFragment;
 import com.wildlab.travelerstavern.utils.DescribeFragment;
 import com.wildlab.travelerstavern.utils.SectionsPageAdapter;
+
+import java.util.ArrayList;
 
 /**
  * @author ogflash
  * @since 9/15/2017.
  */
 
-public class DAndDActivity extends AppCompatActivity {
+public class DAndDActivity extends AppCompatActivity implements CharacterAdapter.IUpdateButtonClicks {
 
     private SectionsPageAdapter sectionsPageAdapter;
     private ViewPager viewPager;
+    private String nameLocal = "";
+    private String levelLocal = "";
+    private String classLocal = "";
+    private CharacterAdapter characterAdapter;
+    private ArrayList<Character> characters;
+    private RecyclerView recyclerView;
 
     @Override
     protected void onCreate(Bundle saveInstantstate) {
@@ -45,7 +61,9 @@ public class DAndDActivity extends AppCompatActivity {
         TabLayout tabLayout = (TabLayout) findViewById(R.id.tabs);
         tabLayout.setupWithViewPager(viewPager);
 
-
+        characters = new ArrayList<Character>();
+        characterAdapter = new CharacterAdapter(this, characters);
+        recyclerView = (RecyclerView) findViewById(R.id.listViewCharacters);
     }
 
     @Override
@@ -84,6 +102,7 @@ public class DAndDActivity extends AppCompatActivity {
         String msg = "";
         switch (item.getItemId()){
             case R.id.save_menu:
+                showChangeLangDialog();
                 msg = "Save!";
                 break;
             case R.id.settings_menu:
@@ -122,4 +141,49 @@ public class DAndDActivity extends AppCompatActivity {
         viewPager.setAdapter(adapter);
 
     }
+
+    @Override
+    public void onClickButton() {
+//        showChangeLangDialog();
+    }
+
+    public Character showChangeLangDialog() {
+        //TODO BETTER DIALOG :_)!
+        AlertDialog.Builder dialogBuilder = new AlertDialog.Builder(this);
+        LayoutInflater inflater = getLayoutInflater();
+        final View dialogView = inflater.inflate(R.layout.custom_dialog_edit, null);
+        dialogBuilder.setView(dialogView);
+
+        final EditText edtName = (EditText) dialogView.findViewById(R.id.character_name_edit);
+        final EditText edtLevel = (EditText) dialogView.findViewById(R.id.character_level_edit);
+        final EditText edtClass = (EditText) dialogView.findViewById(R.id.character_class_edit);
+
+
+        dialogBuilder.setTitle("Add Character");
+        dialogBuilder.setMessage("Edit Fields Below");
+        dialogBuilder.setPositiveButton("Done", new DialogInterface.OnClickListener() {
+            public void onClick(DialogInterface dialog, int whichButton) {
+                //do something with edt.getText().toString();
+                if(edtName != null && edtLevel != null  && edtClass != null ){
+                    if(edtName.getText().toString().equals("") || edtLevel.getText().toString().equals("") || edtClass.getText().toString().equals("")){
+                        nameLocal = edtName.getText().toString();
+                        levelLocal = edtLevel.getText().toString();
+                        classLocal = edtClass.getText().toString();
+
+                        //TODO SOMEHOW UPDATE LIST?
+                    }
+                }
+            }
+        });
+        dialogBuilder.setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
+            public void onClick(DialogInterface dialog, int whichButton) {
+                //pass
+            }
+        });
+        AlertDialog b = dialogBuilder.create();
+        b.show();
+
+        return new Character(nameLocal, levelLocal, classLocal);
+    }
+
 }
