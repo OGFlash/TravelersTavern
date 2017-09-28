@@ -1,6 +1,7 @@
 package com.wildlab.travelerstavern.utils;
 
 import android.content.Context;
+import android.content.Intent;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -8,6 +9,7 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.TextView;
 
+import com.wildlab.travelerstavern.CharacterInfoActivity;
 import com.wildlab.travelerstavern.R;
 
 import java.util.ArrayList;
@@ -47,7 +49,11 @@ public class CharacterAdapter extends RecyclerView.Adapter<CharacterAdapter.View
             //TODO I CAN GET DATA NOW FROM INDIVIDUAL VIEWS
             int position = getAdapterPosition();
             Character character = this.localArrayListCharacters.get(position);
-            deleteItem(getPosition());
+//            deleteItem(getPosition());
+
+            Intent intentCI = new Intent(getContext(), CharacterInfoActivity.class);
+            view.getContext().startActivity(intentCI);
+
         }
     }
 
@@ -77,17 +83,7 @@ public class CharacterAdapter extends RecyclerView.Adapter<CharacterAdapter.View
         holder.characterName.setText(currentData.getName());
         holder.characterClass.setText(currentData.getClassName());
         holder.characterLevel.setText(currentData.getLevel());
-        //TODO WHAT ARE THE PERKS OF USING A INTERFACE?
-//        buttonSelect.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View view) {
-//
-//                if(view.getContext() instanceof IUpdateButtonClicks) {
-//                    ((IUpdateButtonClicks) view.getContext()).onClickButton();
-//                }
-//                Toast.makeText(getContext(), "This Worked", Toast.LENGTH_LONG).show();
-//            }
-//        });
+
     }
 
     public void updateList(ArrayList<Character> characters){
