@@ -148,13 +148,13 @@ public class CharacterInfoActivity extends AppCompatActivity{
     public boolean onOptionsItemSelected(MenuItem item) {
         String msg = "";
         switch (item.getItemId()){
-            case R.id.save_menu:
-                msg = "Save!";
-                break;
-            case R.id.settings_menu:
-                msg = "Settings!";
+            case R.id.dnd_home:
+                msg = "DND!";
                 Intent intentDD = new Intent(getApplicationContext(), DAndDActivity.class);
                 startActivity(intentDD);
+                break;
+            case R.id.save_menu:
+                msg = "Settings!";
                 break;
             case R.id.message_menu:
                 msg = "message!";
@@ -193,8 +193,7 @@ public class CharacterInfoActivity extends AppCompatActivity{
         dialogBuilder.setMessage("Update Below");
         dialogBuilder.setPositiveButton("Done", new DialogInterface.OnClickListener() {
             public void onClick(DialogInterface dialog, int whichButton) {
-                //TODO CHANGE EXPANDABLE LSITVIEW TO TAKE VIEWS AND ADD A TEXT VIEW FOR THE TOTAL
-//                edtStr.getText().toString();
+
             }
         });
         dialogBuilder.setNegativeButton("Cancel", new DialogInterface.OnClickListener() {

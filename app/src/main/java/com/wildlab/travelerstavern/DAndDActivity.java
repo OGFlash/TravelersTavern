@@ -101,11 +101,11 @@ public class DAndDActivity extends AppCompatActivity implements CharacterAdapter
     public boolean onOptionsItemSelected(MenuItem item) {
         String msg = "";
         switch (item.getItemId()){
-            case R.id.save_menu:
+            case R.id.dnd_home:
                 showChangeLangDialog();
                 msg = "Save!";
                 break;
-            case R.id.settings_menu:
+            case R.id.save_menu:
                 msg = "Settings!";
                 Intent intentDD = new Intent(getApplicationContext(), DAndDActivity.class);
                 startActivity(intentDD);

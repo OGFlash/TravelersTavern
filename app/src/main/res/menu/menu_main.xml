@@ -4,7 +4,7 @@
 
     <group android:checkableBehavior="none">
     <item
-        android:id="@+id/settings_menu"
+        android:id="@+id/dnd_home"
         android:icon="@drawable/ic_menu_manage"
         android:title="DnD"/>
 

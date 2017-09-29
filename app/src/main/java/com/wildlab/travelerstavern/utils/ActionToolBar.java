@@ -40,11 +40,11 @@ public class ActionToolBar extends AppCompatActivity {
     public boolean onOptionsItemSelected(MenuItem item) {
         String msg = "";
         switch (item.getItemId()){
+            case R.id.dnd_home:
+                msg = "dnd!";
+                break;
             case R.id.save_menu:
                 msg = "Save!";
-                break;
-            case R.id.settings_menu:
-                msg = "Settings!";
                 break;
             case R.id.message_menu:
                 msg = "message!";
