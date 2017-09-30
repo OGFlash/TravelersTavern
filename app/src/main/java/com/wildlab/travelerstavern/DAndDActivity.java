@@ -107,7 +107,7 @@ public class DAndDActivity extends AppCompatActivity implements CharacterAdapter
                 break;
             case R.id.save_menu:
                 msg = "Settings!";
-                Intent intentDD = new Intent(getApplicationContext(), DAndDActivity.class);
+                Intent intentDD = new Intent(getApplicationContext(), CharacterInfoActivity.class);
                 startActivity(intentDD);
                 break;
             case R.id.message_menu:
