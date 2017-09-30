@@ -77,7 +77,7 @@ public class DAndDActivity extends AppCompatActivity {
                 break;
             case R.id.top_settings_share:
                 msg = "Settings!";
-                Intent intentDD = new Intent(getApplicationContext(), DAndDActivity.class);
+                Intent intentDD = new Intent(getApplicationContext(), CharacterInfoActivity.class);
                 startActivity(intentDD);
                 break;
             case R.id.top_settings_settings:

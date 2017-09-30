@@ -1,6 +1,7 @@
 package com.wildlab.travelerstavern.utils;
 
 import android.content.Context;
+import android.content.Intent;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -8,6 +9,7 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.TextView;
 
+import com.wildlab.travelerstavern.DAndDActivity;
 import com.wildlab.travelerstavern.R;
 
 import java.util.ArrayList;
@@ -50,6 +52,9 @@ public class CharacterAdapter extends RecyclerView.Adapter<CharacterAdapter.View
             Character character = this.localArrayListCharacters.get(position);
 //            Intent intentCI = new Intent(getContext(), CharacterInfoActivity.class);
 //            view.getContext().startActivity(intentCI);
+
+            Intent intentDD = new Intent(getContext(), DAndDActivity.class);
+            view.getContext().startActivity(intentDD);
 
 
         }
