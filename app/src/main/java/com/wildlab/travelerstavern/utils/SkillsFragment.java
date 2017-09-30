@@ -23,8 +23,8 @@ import java.util.ArrayList;
  * @since 9/14/2017.
  */
 
-public class DescribeFragment extends Fragment {
-    private static final String TAG = "DescribeFragment";
+public class SkillsFragment extends Fragment {
+    private static final String TAG = "SkillsFragment";
     private static final String STR = "STR";
     private static final String DEX = "DEX";
     private static final String CON = "CON";
@@ -92,10 +92,9 @@ public class DescribeFragment extends Fragment {
     private ArrayList<Character> characters;
 
 
-    public DescribeFragment(){
+    public SkillsFragment(){
 
     }
-
 
     @Nullable
     @Override

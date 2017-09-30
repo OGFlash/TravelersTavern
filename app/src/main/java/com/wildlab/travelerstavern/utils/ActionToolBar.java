@@ -1,5 +1,6 @@
 package com.wildlab.travelerstavern.utils;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
@@ -7,6 +8,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.Toast;
 
+import com.wildlab.travelerstavern.DAndDActivity;
 import com.wildlab.travelerstavern.R;
 
 /**
@@ -26,13 +28,11 @@ public class ActionToolBar extends AppCompatActivity {
         getSupportActionBar().setTitle("Action Bar ToolBar");
         mToolBar.setSubtitle("By Andrew Michael King");
 
-
-
     }
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
-        getMenuInflater().inflate(R.menu.menu_main, menu);
+        getMenuInflater().inflate(R.menu.action_bar_settings, menu);
         return  true;
     }
 
@@ -40,29 +40,16 @@ public class ActionToolBar extends AppCompatActivity {
     public boolean onOptionsItemSelected(MenuItem item) {
         String msg = "";
         switch (item.getItemId()){
-            case R.id.dnd_home:
-                msg = "dnd!";
-                break;
-            case R.id.save_menu:
+            case R.id.top_settings_main_menu:
                 msg = "Save!";
                 break;
-            case R.id.message_menu:
+            case R.id.top_settings_share:
+                msg = "Settings!";
+                Intent intentDD = new Intent(getApplicationContext(), DAndDActivity.class);
+                startActivity(intentDD);
+                break;
+            case R.id.top_settings_settings:
                 msg = "message!";
-                break;
-            case R.id.camera_menu:
-                msg = "camera!";
-                break;
-            case R.id.share_menu:
-                msg = "share!";
-                break;
-            case R.id.nav_share:
-                msg = "nav share!";
-                break;
-            case R.id.nav_send:
-                msg = "nav send!";
-                break;
-            case R.id.communication_menu:
-                msg = "Communication";
                 break;
             default:
                 msg = "Not Found";

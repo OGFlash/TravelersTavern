@@ -140,7 +140,7 @@ public class CharacterInfoActivity extends AppCompatActivity{
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
-        getMenuInflater().inflate(R.menu.menu_main, menu);
+        getMenuInflater().inflate(R.menu.action_bar_settings, menu);
         return  true;
     }
 
@@ -148,28 +148,16 @@ public class CharacterInfoActivity extends AppCompatActivity{
     public boolean onOptionsItemSelected(MenuItem item) {
         String msg = "";
         switch (item.getItemId()){
-            case R.id.dnd_home:
-                msg = "DND!";
+            case R.id.top_settings_main_menu:
+                msg = "Save!";
+                break;
+            case R.id.top_settings_share:
+                msg = "Settings!";
                 Intent intentDD = new Intent(getApplicationContext(), DAndDActivity.class);
                 startActivity(intentDD);
                 break;
-            case R.id.save_menu:
-                msg = "Settings!";
-                break;
-            case R.id.message_menu:
+            case R.id.top_settings_settings:
                 msg = "message!";
-                break;
-            case R.id.share_menu:
-                msg = "share!";
-                break;
-            case R.id.nav_share:
-                msg = "nav share!";
-                break;
-            case R.id.nav_send:
-                msg = "nav send!";
-                break;
-            case R.id.communication_menu:
-                msg = "Communication";
                 break;
             default:
                 msg = "Not Found";
