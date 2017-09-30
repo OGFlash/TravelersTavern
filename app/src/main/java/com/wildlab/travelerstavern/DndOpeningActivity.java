@@ -1,13 +1,11 @@
 package com.wildlab.travelerstavern;
 
-import android.content.Intent;
 import android.os.Bundle;
+import android.support.design.widget.FloatingActionButton;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.view.Menu;
-import android.view.MenuItem;
-import android.widget.Toast;
+import android.view.View;
 
 import com.wildlab.travelerstavern.data.DatabaseHelper;
 import com.wildlab.travelerstavern.utils.Character;
@@ -28,6 +26,7 @@ public class DndOpeningActivity extends AppCompatActivity {
     private CharacterAdapter.IUpdateButtonClicks iUpdateButtonClicks;
     private CharacterAdapter characterAdapter;
     private DatabaseHelper dbHelper;
+    private FloatingActionButton floatingActionButton;
 
     @Override
     protected void onCreate(Bundle saveInstantstate) {
@@ -42,16 +41,24 @@ public class DndOpeningActivity extends AppCompatActivity {
 //        DatabaseHelper.insertCharacterFull(dbHelper.getWritableDatabase(), "OogGnarr", "Gravity Master", 1, 200, 14, 30, 20, 15, 15, 11, 20, 40);
 //        DatabaseHelper.insertCharacterFull(dbHelper.getWritableDatabase(), "OogSarr", "Forge Master", 1, 150, 21, 9, 11, 18, 15, 11, 19, 40);
 
+
         //TODO CREATING CUSTOM QUERIES LIKE GET_ALL_RECORDS
-        ArrayList<Character> characters = dbHelper.getAllCharacterRecords();
-        characterAdapter = new CharacterAdapter(this, characters);
-        recycler.setAdapter(characterAdapter);
-        recycler.setLayoutManager(new LinearLayoutManager(this));
+//        ArrayList<Character> characters = dbHelper.getAllCharacterRecords();
+//        characterAdapter = new CharacterAdapter(this, characters);
+//        recycler.setAdapter(characterAdapter);
+//        recycler.setLayoutManager(new LinearLayoutManager(this));
 
-
-        characters = new ArrayList<Character>();
-        characterAdapter = new CharacterAdapter(this, characters);
-        recyclerView = (RecyclerView) findViewById(R.id.listViewCharacters);
+        floatingActionButton = (FloatingActionButton)findViewById(R.id.fab_open_dnd);
+        floatingActionButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                DatabaseHelper.insertCharacterFull(dbHelper.getWritableDatabase(), "OogBlur", "Warrior", 1, 100, 18, 28, 15, 14, 12, 10, 30, 40);
+                ArrayList<Character> characters = dbHelper.getAllCharacterRecords();
+                characterAdapter = new CharacterAdapter(DndOpeningActivity.this, characters);
+                recycler.setAdapter(characterAdapter);
+                recycler.setLayoutManager(new LinearLayoutManager(DndOpeningActivity.this));
+            }
+        });
     }
 
     @Override
@@ -79,31 +86,5 @@ public class DndOpeningActivity extends AppCompatActivity {
         super.onResume();
     }
 
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        return  true;
-    }
 
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        String msg = "";
-        switch (item.getItemId()){
-            case R.id.top_settings_main_menu:
-                msg = "Save!";
-                break;
-            case R.id.top_settings_share:
-                msg = "Settings!";
-                Intent intentDD = new Intent(getApplicationContext(), CharacterInfoActivity.class);
-                startActivity(intentDD);
-                break;
-            case R.id.top_settings_settings:
-                msg = "message!";
-                break;
-            default:
-                msg = "Not Found";
-                break;
-        }
-        Toast.makeText(this, msg + "Clicked !", Toast.LENGTH_SHORT).show();
-        return super.onOptionsItemSelected(item);
-    }
 }
