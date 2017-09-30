@@ -9,27 +9,40 @@ import java.util.ArrayList;
 public class Character {
     private String localname;
     private String localclassType;
-    private String locallevel;
+    private Integer locallevel;
+    private String idLocal;
     private ArrayList<Character> characters = new ArrayList<Character>();
 
-    public Character(String name, String classType, String level){
-        localname = name;
-        locallevel = level;
-        localclassType = classType;
-    }
-
     public String getName(){
-        return localname;
-    }
+        return localname;}
 
     public String getClassName(){
         return localclassType;
     }
 
-
-    public String getLevel(){
-        return locallevel;
+    public Integer getLevel(){return locallevel;
     }
+
+    public String getID() {
+        return idLocal;
+    }
+
+    public void setCharacterName(String name){
+        this.localname = name;
+    }
+
+    public void setCharacterClass(String classType){
+        this.localclassType = classType;
+    }
+
+    public void setCharacterLevel(Integer level){
+        this.locallevel = level;
+    }
+
+    public void setID(String ID) {
+        this.idLocal = ID;
+    }
+
 
     private static int lastCharacterId = 0;
 

@@ -147,7 +147,7 @@ public class DAndDActivity extends AppCompatActivity implements CharacterAdapter
 //        showChangeLangDialog();
     }
 
-    public Character showChangeLangDialog() {
+    public void showChangeLangDialog() {
         //TODO BETTER DIALOG :_)!
         AlertDialog.Builder dialogBuilder = new AlertDialog.Builder(this);
         LayoutInflater inflater = getLayoutInflater();
@@ -182,8 +182,6 @@ public class DAndDActivity extends AppCompatActivity implements CharacterAdapter
         });
         AlertDialog b = dialogBuilder.create();
         b.show();
-
-        return new Character(nameLocal, levelLocal, classLocal);
     }
 
 }

@@ -14,6 +14,9 @@ import android.widget.Button;
 import android.widget.EditText;
 
 import com.wildlab.travelerstavern.R;
+import com.wildlab.travelerstavern.data.DatabaseHelper;
+
+import java.util.ArrayList;
 
 /**
  * @author ogflash
@@ -22,6 +25,18 @@ import com.wildlab.travelerstavern.R;
 
 public class DescribeFragment extends Fragment {
     private static final String TAG = "DescribeFragment";
+    private static final String STR = "STR";
+    private static final String DEX = "DEX";
+    private static final String CON = "CON";
+    private static final String INT = "INT";
+    private static final String WIS = "WIS";
+    private static final String CHA = "CHA";
+    private static final String HEALTH = "Health";
+    private static final String HEALTHCURRENT = "Current";
+    private static final String ACCURRENT = "Current";
+    private static final String AC = "AC";
+    private static final String SPEED = "Speed";
+
     private Button buttonHealthTotal = null;
     private Button buttonHealthCurrent = null;
     private Button buttonHealthDamageTaken = null;
@@ -72,7 +87,14 @@ public class DescribeFragment extends Fragment {
     private String intelligenceString;
     private String wisdomString;
     private String charismaString;
+    private String speedString;
+    private DatabaseHelper dbHelper;
+    private ArrayList<Character> characters;
 
+
+    public DescribeFragment(){
+
+    }
 
 
     @Nullable
@@ -105,17 +127,14 @@ public class DescribeFragment extends Fragment {
         chaModifier = (Button) rootView.findViewById(R.id.cha_info_rec_modifier);
         chaTemp = (Button) rootView.findViewById(R.id.cha_info_rec_temp);
 
+        dbHelper = new DatabaseHelper(getContext(), DatabaseHelper.DB_NAME, null, 1);
+        characters = dbHelper.getAllCharacterRecords();
+
 
         buttonHealthTotal.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 showHealthDialog();
-                if(healthString != null) {
-                    String buttonText = buttonHealthTotal.getText().toString();
-                    buttonHealthTotal.setText(buttonText + "    " + healthString);
-                    view.invalidate();
-                    healthString = null;
-                }
             }
         });
 
@@ -123,12 +142,6 @@ public class DescribeFragment extends Fragment {
             @Override
             public void onClick(View view) {
                 showAcDialog();
-                if(acString != null) {
-                    String buttonText = acTotal.getText().toString();
-                    acTotal.setText(buttonText + "          " + acString);
-                    view.invalidate();
-                    acString = null;
-                }
             }
         });
 
@@ -143,12 +156,6 @@ public class DescribeFragment extends Fragment {
             @Override
             public void onClick(View view) {
                 showDexDialog();
-                if(dexterityString != null) {
-                    String buttonText = dexTotal.getText().toString();
-                    dexTotal.setText(buttonText + "         " + dexterityString);
-                    view.invalidate();
-                    dexterityString = null;
-                }
             }
         });
 
@@ -156,11 +163,6 @@ public class DescribeFragment extends Fragment {
             @Override
             public void onClick(View view) {
                 showConDialog();
-                if(constitutionString != null) {
-                    String buttonText = conTotal.getText().toString();
-                    conTotal.setText(buttonText + "         " + constitutionString);
-                    constitutionString = null;
-                }
             }
         });
 
@@ -168,12 +170,6 @@ public class DescribeFragment extends Fragment {
             @Override
             public void onClick(View view) {
                 showIntDialog();
-                if(intelligenceString != null) {
-                    String buttonText = intTotal.getText().toString();
-                    intTotal.setText(buttonText + "         " + intelligenceString);
-                    view.invalidate();
-                    intelligenceString = null;
-                }
             }
         });
 
@@ -181,12 +177,6 @@ public class DescribeFragment extends Fragment {
             @Override
             public void onClick(View view) {
                 showWisDialog();
-                if(wisdomString != null) {
-                    String buttonText = wisTotal.getText().toString();
-                    wisTotal.setText(buttonText + "         " + wisdomString);
-                    view.invalidate();
-                    wisdomString = null;
-                }
             }
         });
 
@@ -194,18 +184,89 @@ public class DescribeFragment extends Fragment {
             @Override
             public void onClick(View view) {
                 showChaDialog();
-                if(charismaString != null) {
-                    String buttonText = chaTotal.getText().toString();
-                    chaTotal.setText(buttonText + "         " + charismaString);
-                    view.invalidate();
-                    charismaString = null;
-                }
             }
         });
 
+        buttonHealthWalkSpeed.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                showSpeedDialog();
+            }
+        });
 
         return rootView;
     }
+
+    private void updateSpeed(String speed, Button button){
+        button.setText(SPEED + "\n" + speed);
+    }
+
+    private void updateAC(String acString, Button button){
+        button.setText(ACCURRENT + "\n" + acString);
+    }
+
+    private void updateHealth(String healthString, Button button){
+        button.setText(HEALTHCURRENT + "\n" + healthString);
+    }
+
+    private void updateModifier(String updatedString, Button button) {
+        String modifier = null;
+        int modifierInt;
+        modifierInt = Integer.parseInt(updatedString);
+        if(modifierInt == 1){
+           modifier = "-5";
+        }
+        else if(modifierInt > 1 && modifierInt <= 3){
+            modifier = "-4";
+        }
+        else if(modifierInt > 3 && modifierInt <= 5){
+            modifier = "-3";
+        }
+        else if(modifierInt > 5 && modifierInt <= 7){
+            modifier = "-2";
+        }
+        else if(modifierInt > 7 && modifierInt <= 9){
+            modifier = "-1";
+        }
+        else if(modifierInt > 9 && modifierInt <= 11){
+            modifier = "+0";
+        }
+        else if(modifierInt > 11 && modifierInt <= 13){
+            modifier = "+1";
+        }
+        else if(modifierInt > 13 && modifierInt <= 15){
+            modifier = "+2";
+        }
+        else if(modifierInt > 15 && modifierInt <= 17){
+            modifier = "+3";
+        }
+        else if(modifierInt > 17 && modifierInt <= 19){
+            modifier = "+4";
+        }
+        else if(modifierInt > 19 && modifierInt <= 21){
+            modifier = "+5";
+        }
+        else if(modifierInt > 21 && modifierInt <= 23){
+            modifier = "+6";
+        }
+        else if(modifierInt > 23 && modifierInt <= 25){
+            modifier = "+7";
+        }
+        else if(modifierInt > 25 && modifierInt <= 27){
+            modifier = "+8";
+        }
+        else if(modifierInt > 27 && modifierInt <= 28){
+            modifier = "+9";
+        }
+        else if(modifierInt == 30){
+            modifier = "+10";
+        }
+        else{
+            modifier = "Error";
+        }
+        button.setText("\n" + modifier);
+    }
+
 
     public void showStrDialog() {
         //TODO BETTER DIALOG :_)!
@@ -224,12 +285,11 @@ public class DescribeFragment extends Fragment {
                 strengthString = edtStr.getText().toString();
                 if(strengthString != null) {
                     Log.e(TAG, "onClick: " + strengthString);
-                    final String buttonText = strTotal.getText().toString();
-                    strTotal.setText(buttonText + "\n" + strengthString);
-                    Log.e(TAG, "onClick: " + strTotal.getText());
-
-                    strengthString = null;
+                    strTotal.setText(STR + "\n" + strengthString);
                 }
+                updateModifier(strengthString, strModifier);
+                strengthString = null;
+
             }
         });
         dialogBuilder.setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
@@ -256,6 +316,11 @@ public class DescribeFragment extends Fragment {
         dialogBuilder.setPositiveButton("Done", new DialogInterface.OnClickListener() {
             public void onClick(DialogInterface dialog, int whichButton) {
                 dexterityString = edtDexterity.getText().toString();
+                if(dexterityString != null) {
+                    dexTotal.setText(DEX + "\n" + dexterityString);
+                }
+                updateModifier(dexterityString, dexModifier);
+                dexterityString = null;
             }
         });
         dialogBuilder.setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
@@ -282,6 +347,11 @@ public class DescribeFragment extends Fragment {
         dialogBuilder.setPositiveButton("Done", new DialogInterface.OnClickListener() {
             public void onClick(DialogInterface dialog, int whichButton) {
                 constitutionString = edtCon.getText().toString();
+                if(constitutionString != null) {
+                    conTotal.setText(CON + "\n" + constitutionString);
+                }
+                updateModifier(constitutionString, conModifier);
+                constitutionString = null;
             }
         });
         dialogBuilder.setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
@@ -308,6 +378,11 @@ public class DescribeFragment extends Fragment {
         dialogBuilder.setPositiveButton("Done", new DialogInterface.OnClickListener() {
             public void onClick(DialogInterface dialog, int whichButton) {
                 intelligenceString = edtInt.getText().toString();
+                if(intelligenceString != null) {
+                    intTotal.setText(INT + "\n" + intelligenceString);
+                }
+                updateModifier(intelligenceString, intModifier);
+                intelligenceString = null;
             }
         });
         dialogBuilder.setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
@@ -334,6 +409,11 @@ public class DescribeFragment extends Fragment {
         dialogBuilder.setPositiveButton("Done", new DialogInterface.OnClickListener() {
             public void onClick(DialogInterface dialog, int whichButton) {
                 wisdomString = edtWis.getText().toString();
+                if(wisdomString != null) {
+                    wisTotal.setText(WIS + "\n" + wisdomString);
+                }
+                updateModifier(wisdomString, wisModifier);
+                wisdomString = null;
             }
         });
         dialogBuilder.setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
@@ -360,6 +440,11 @@ public class DescribeFragment extends Fragment {
         dialogBuilder.setPositiveButton("Done", new DialogInterface.OnClickListener() {
             public void onClick(DialogInterface dialog, int whichButton) {
                 charismaString = edtCha.getText().toString();
+                if(charismaString != null) {
+                    chaTotal.setText(CHA + "\n" + charismaString);
+                }
+                updateModifier(charismaString, chaModifier);
+                charismaString = null;
             }
         });
         dialogBuilder.setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
@@ -386,6 +471,11 @@ public class DescribeFragment extends Fragment {
         dialogBuilder.setPositiveButton("Done", new DialogInterface.OnClickListener() {
             public void onClick(DialogInterface dialog, int whichButton) {
                 healthString = edtHealth.getText().toString();
+                if(healthString != null) {
+                    buttonHealthTotal.setText(HEALTH + "\n" + healthString);
+                }
+                updateHealth(healthString, buttonHealthCurrent);
+                healthString = null;
             }
         });
         dialogBuilder.setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
@@ -412,6 +502,11 @@ public class DescribeFragment extends Fragment {
         dialogBuilder.setPositiveButton("Done", new DialogInterface.OnClickListener() {
             public void onClick(DialogInterface dialog, int whichButton) {
                 acString = edtAc.getText().toString();
+                if(acString != null) {
+                    acTotal.setText(AC + "\n" + acString);
+                }
+                updateAC(acString, acCurrent);
+                acString = null;
             }
         });
         dialogBuilder.setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
@@ -422,4 +517,35 @@ public class DescribeFragment extends Fragment {
         AlertDialog b = dialogBuilder.create();
         b.show();
     }
+
+    public void showSpeedDialog() {
+        //TODO BETTER DIALOG :_)!
+        AlertDialog.Builder dialogBuilder = new AlertDialog.Builder(getContext());
+        LayoutInflater inflater = LayoutInflater.from(getContext());
+        final View dialogView = inflater.inflate(R.layout.custom_dialog_speed, null);
+        dialogBuilder.setView(dialogView);
+
+        final EditText edtSpeed = (EditText) dialogView.findViewById(R.id.character_speed);
+
+        dialogBuilder.setTitle("Update Speed");
+        dialogBuilder.setMessage("Update Below");
+        dialogBuilder.setPositiveButton("Done", new DialogInterface.OnClickListener() {
+            public void onClick(DialogInterface dialog, int whichButton) {
+                speedString = edtSpeed.getText().toString();
+                if(speedString != null) {
+                    buttonHealthWalkSpeed.setText(SPEED + "\n" + speedString);
+                }
+                updateSpeed(speedString, buttonHealthWalkSpeed);
+                speedString = null;
+            }
+        });
+        dialogBuilder.setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
+            public void onClick(DialogInterface dialog, int whichButton) {
+                //pass
+            }
+        });
+        AlertDialog b = dialogBuilder.create();
+        b.show();
+    }
+
 }

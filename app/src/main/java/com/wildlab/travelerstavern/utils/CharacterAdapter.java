@@ -1,7 +1,6 @@
 package com.wildlab.travelerstavern.utils;
 
 import android.content.Context;
-import android.content.Intent;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -9,7 +8,6 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.TextView;
 
-import com.wildlab.travelerstavern.CharacterInfoActivity;
 import com.wildlab.travelerstavern.R;
 
 import java.util.ArrayList;
@@ -47,12 +45,12 @@ public class CharacterAdapter extends RecyclerView.Adapter<CharacterAdapter.View
         @Override
         public void onClick(View view) {
             //TODO I CAN GET DATA NOW FROM INDIVIDUAL VIEWS
+            //TODO PASS DATA TO VIEWS NOW?
             int position = getAdapterPosition();
             Character character = this.localArrayListCharacters.get(position);
-//            deleteItem(getPosition());
+//            Intent intentCI = new Intent(getContext(), CharacterInfoActivity.class);
+//            view.getContext().startActivity(intentCI);
 
-            Intent intentCI = new Intent(getContext(), CharacterInfoActivity.class);
-            view.getContext().startActivity(intentCI);
 
         }
     }
@@ -82,7 +80,7 @@ public class CharacterAdapter extends RecyclerView.Adapter<CharacterAdapter.View
         Character currentData = data.get(position);
         holder.characterName.setText(currentData.getName());
         holder.characterClass.setText(currentData.getClassName());
-        holder.characterLevel.setText(currentData.getLevel());
+        holder.characterLevel.setText(currentData.getLevel().toString());
 
     }
 

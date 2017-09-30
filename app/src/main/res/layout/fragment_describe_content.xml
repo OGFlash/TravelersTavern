@@ -135,7 +135,7 @@
             android:text="Ability"
             android:textAlignment="center"
             android:textColor="#e1dede"
-            android:textSize="12sp"
+            android:textSize="16sp"
             android:textStyle="bold|italic" />
 
         <TextView
@@ -147,7 +147,7 @@
             android:text="Modifier"
             android:textAlignment="center"
             android:textColor="#e1dede"
-            android:textSize="12sp"
+            android:textSize="16sp"
             android:textStyle="bold|italic" />
 
         <TextView
@@ -159,7 +159,7 @@
             android:text="Temp"
             android:textAlignment="center"
             android:textColor="#e1dede"
-            android:textSize="12sp"
+            android:textSize="16sp"
             android:textStyle="bold|italic" />
 
     </LinearLayout>
