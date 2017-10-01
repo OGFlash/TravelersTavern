@@ -26,4 +26,13 @@
         app:itemIconTint="@drawable/selector"
         app:itemTextColor="@drawable/selector"
         app:menu="@menu/bottom_navigation" />
+
+    <FrameLayout
+        android:id="@+id/tabs_root_id"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_above="@id/navigation"
+        android:orientation="vertical">
+    </FrameLayout>
+
 </android.support.design.widget.CoordinatorLayout>

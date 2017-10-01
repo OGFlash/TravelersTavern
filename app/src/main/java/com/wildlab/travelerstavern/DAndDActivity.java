@@ -1,14 +1,21 @@
 package com.wildlab.travelerstavern;
 
+
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.design.widget.BottomNavigationView;
+
+import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentManager;
+import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.Toast;
+
+import com.wildlab.travelerstavern.utils.SkillsFragment;
 
 /**
  * @author Andrew King
@@ -17,98 +24,99 @@ import android.widget.Toast;
  */
 
 public class DAndDActivity extends AppCompatActivity {
+    private Toolbar toolBar;
+    private BottomNavigationView navigationView;
+    private BottomNavigationView.OnNavigationItemSelectedListener navItemSelectedListener;
 
     @Override
     protected void onCreate(Bundle saveInstantstate) {
         super.onCreate(saveInstantstate);
+        setContentView(R.layout.dnd_activity);
 
-        setContentView(R.layout.dd_main_content);
+        toolBar = (Toolbar) findViewById(R.id.toolbar);
+        navigationView = (BottomNavigationView) findViewById(R.id.navigation);
 
-        BottomNavigationView navigation = (BottomNavigationView) findViewById(R.id.navigation);
-        navigation.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener);
+        setSupportActionBar(toolBar);
 
-
-        Toolbar mToolBar = (Toolbar) findViewById(R.id.toolbar);
-        setSupportActionBar(mToolBar);
-
-        if(mToolBar != null) {
+        if (toolBar != null) {
             getSupportActionBar().setTitle("Travelers Tavern");
-            mToolBar.setSubtitle("Name: ___________");
+            toolBar.setSubtitle("Name: ___________");
         }
-    }
 
-    @Override
-    protected void onStart() {
-        super.onStart();
-    }
-
-    @Override
-    protected void onStop() {
-        super.onStop();
-    }
-
-    @Override
-    protected void onDestroy() {
-        super.onDestroy();
-    }
-
-    @Override
-    protected void onPause() {
-        super.onPause();
-    }
-
-    @Override
-    protected void onResume() {
-        super.onResume();
+        setListeners();
+        navigationView.setOnNavigationItemSelectedListener(navItemSelectedListener);
     }
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         getMenuInflater().inflate(R.menu.action_bar_settings, menu);
-        return  true;
+        return true;
     }
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         String msg = "";
-        switch (item.getItemId()){
+        switch (item.getItemId()) {
             case R.id.top_settings_main_menu:
-                msg = "Save!";
+                msg = "Main Menu";
                 break;
             case R.id.top_settings_share:
-                msg = "Settings!";
+                msg = "Share!";
                 Intent intentDD = new Intent(getApplicationContext(), CharacterInfoActivity.class);
                 startActivity(intentDD);
                 break;
             case R.id.top_settings_settings:
-                msg = "message!";
+                msg = "Settings!";
                 break;
             default:
                 msg = "Not Found";
                 break;
         }
-        Toast.makeText(this, msg + "Clicked !", Toast.LENGTH_SHORT).show();
+        Toast.makeText(this, msg + " Clicked!", Toast.LENGTH_SHORT).show();
         return super.onOptionsItemSelected(item);
     }
 
-    private BottomNavigationView.OnNavigationItemSelectedListener mOnNavigationItemSelectedListener
-            = new BottomNavigationView.OnNavigationItemSelectedListener() {
-
-        @Override
-        public boolean onNavigationItemSelected(@NonNull MenuItem item) {
-            switch (item.getItemId()) {
-                case R.id.navigation_character:
-                    return true;
-                case R.id.navigation_skills:
-                    return true;
-                case R.id.navigation_spells:
-                    return true;
-                case R.id.navigation_equipment:
-                    return true;
-                case R.id.navigation_dice:
-                    return true;
+    private void setListeners() {
+        navItemSelectedListener = new BottomNavigationView.OnNavigationItemSelectedListener() {
+            @Override
+            public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+                selectFragment(item);
+                return false;
             }
-            return false;
+        };
+    }
+
+    private void selectFragment(MenuItem item) {
+        item.setChecked(true);
+
+        switch (item.getItemId()) {
+            case R.id.navigation_character:
+                break;
+            case R.id.navigation_skills:
+                openFragment(new SkillsFragment());
+                break;
+            case R.id.navigation_spells:
+                break;
+            case R.id.navigation_equipment:
+                break;
+            case R.id.navigation_dice:
+                break;
+            default:
+                break;
         }
-    };
+    }
+
+    private void openFragment(Fragment fragment) {
+        if (fragment == null)
+            return;
+
+        FragmentManager fragmentManager = getSupportFragmentManager();
+        if (fragmentManager != null) {
+            FragmentTransaction ft = fragmentManager.beginTransaction();
+            if (ft != null) {
+                ft.replace(R.id.tabs_root_id, fragment);
+                ft.commit();
+            }
+        }
+    }
 }
