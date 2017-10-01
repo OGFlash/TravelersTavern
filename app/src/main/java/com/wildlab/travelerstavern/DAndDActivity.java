@@ -18,6 +18,7 @@ import android.widget.Toast;
 
 public class DAndDActivity extends AppCompatActivity {
 
+
     @Override
     protected void onCreate(Bundle saveInstantstate) {
         super.onCreate(saveInstantstate);
@@ -111,4 +112,6 @@ public class DAndDActivity extends AppCompatActivity {
             return false;
         }
     };
+
+
 }

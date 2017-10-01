@@ -116,4 +116,76 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         dbLocal.close();
         return characters;
     }
+
+    public Integer getSelectedCharactersStr(Character character){
+        dbLocal = this.getReadableDatabase();
+        Cursor cursor = dbLocal.rawQuery("SELECT " +COLUMN_STR+ " FROM " + TABLE_NAME + " WHERE _id='" + character.getID() + "'", null);
+        cursor.close();
+        dbLocal.close();
+        return cursor.getInt(0);
+    }
+
+    public Integer getSelectedCharactersDex(Character character){
+        dbLocal = this.getReadableDatabase();
+        Cursor cursor = dbLocal.rawQuery("SELECT " +COLUMN_DEX+ " FROM " + TABLE_NAME + " WHERE _id='" + character.getID() + "'", null);
+        cursor.close();
+        dbLocal.close();
+        return cursor.getInt(0);
+    }
+
+    public Integer getSelectedCharactersCon(Character character){
+        dbLocal = this.getReadableDatabase();
+        Cursor cursor = dbLocal.rawQuery("SELECT " +COLUMN_CON+ " FROM " + TABLE_NAME + " WHERE _id='" + character.getID() + "'", null);
+        cursor.close();
+        dbLocal.close();
+        return cursor.getInt(0);
+    }
+
+    public Integer getSelectedCharactersInt(Character character){
+        dbLocal = this.getReadableDatabase();
+        Cursor cursor = dbLocal.rawQuery("SELECT " +COLUMN_INT+ " FROM " + TABLE_NAME + " WHERE _id='" + character.getID() + "'", null);
+        cursor.close();
+        dbLocal.close();
+        return cursor.getInt(0);
+    }
+
+    public Integer getSelectedCharactersWis(Character character){
+        dbLocal = this.getReadableDatabase();
+        Cursor cursor = dbLocal.rawQuery("SELECT " +COLUMN_WIS+ " FROM " + TABLE_NAME + " WHERE _id='" + character.getID() + "'", null);
+        cursor.close();
+        dbLocal.close();
+        return cursor.getInt(0);
+    }
+
+    public Integer getSelectedCharactersCha(Character character){
+        dbLocal = this.getReadableDatabase();
+        Cursor cursor = dbLocal.rawQuery("SELECT " +COLUMN_CHA+ " FROM " + TABLE_NAME + " WHERE _id='" + character.getID() + "'", null);
+        cursor.close();
+        dbLocal.close();
+        return cursor.getInt(0);
+    }
+
+    public Integer getSelectedCharactersHealth(Character character){
+        dbLocal = this.getReadableDatabase();
+        Cursor cursor = dbLocal.rawQuery("SELECT " +COLUMN_HEALTH+ " FROM " + TABLE_NAME + " WHERE _id='" + character.getID() + "'", null);
+        cursor.close();
+        dbLocal.close();
+        return cursor.getInt(0);
+    }
+
+    public Integer getSelectedCharactersAC(Character character){
+        dbLocal = this.getReadableDatabase();
+        Cursor cursor = dbLocal.rawQuery("SELECT " +COLUMN_AC+ " FROM " + TABLE_NAME + " WHERE _id='" + character.getID() + "'", null);
+        cursor.close();
+        dbLocal.close();
+        return cursor.getInt(0);
+    }
+
+    public Integer getSelectedCharactersSpeed(Character character){
+        dbLocal = this.getReadableDatabase();
+        Cursor cursor = dbLocal.rawQuery("SELECT " +COLUMN_SPEED+ " FROM " + TABLE_NAME + " WHERE _id='" + character.getID() + "'", null);
+        cursor.close();
+        dbLocal.close();
+        return cursor.getInt(0);
+    }
 }

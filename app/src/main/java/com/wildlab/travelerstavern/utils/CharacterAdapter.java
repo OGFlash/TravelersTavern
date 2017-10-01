@@ -11,6 +11,7 @@ import android.widget.TextView;
 
 import com.wildlab.travelerstavern.DAndDActivity;
 import com.wildlab.travelerstavern.R;
+import com.wildlab.travelerstavern.data.DatabaseHelper;
 
 import java.util.ArrayList;
 
@@ -28,13 +29,15 @@ public class CharacterAdapter extends RecyclerView.Adapter<CharacterAdapter.View
         public TextView characterLevel;
         public TextView characterClass;
         public Button selectButton;
-        private CreateFragment createFragment;
         private ArrayList<Character> localArrayListCharacters = new ArrayList<Character>();
+        private DatabaseHelper dbHelper;
         private Context ctx;
 
 
         public ViewHolder(View itemView, Context context, ArrayList<Character> charactersArray) {
             super(itemView);
+            dbHelper = new DatabaseHelper(getContext(), DatabaseHelper.DB_NAME, null, 1);
+
             this.localArrayListCharacters = charactersArray;
             this.ctx = context;
             characterName = (TextView) itemView.findViewById(R.id.character_name);
@@ -53,8 +56,24 @@ public class CharacterAdapter extends RecyclerView.Adapter<CharacterAdapter.View
 //            Intent intentCI = new Intent(getContext(), CharacterInfoActivity.class);
 //            view.getContext().startActivity(intentCI);
 
+
+
             Intent intentDD = new Intent(getContext(), DAndDActivity.class);
+            intentDD.putExtra("name", character.getClassName());
+            intentDD.putExtra("className", character.getClassName());
+            intentDD.putExtra("level", character.getLevel());
+            intentDD.putExtra("str", dbHelper.getSelectedCharactersStr(character));
+            intentDD.putExtra("dex", dbHelper.getSelectedCharactersDex(character));
+            intentDD.putExtra("con", dbHelper.getSelectedCharactersCon(character));
+            intentDD.putExtra("int", dbHelper.getSelectedCharactersInt(character));
+            intentDD.putExtra("wis", dbHelper.getSelectedCharactersWis(character));
+            intentDD.putExtra("cha", dbHelper.getSelectedCharactersCha(character));
+            intentDD.putExtra("health", dbHelper.getSelectedCharactersHealth(character));
+            intentDD.putExtra("ac", dbHelper.getSelectedCharactersAC(character));
+            intentDD.putExtra("speed", dbHelper.getSelectedCharactersSpeed(character));
             view.getContext().startActivity(intentDD);
+
+
 
 
         }

@@ -6,16 +6,10 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <android.support.design.widget.AppBarLayout
-        android:id="@+id/appbar"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="@color/colorTeal">
 
         <include
             android:id="@+id/toolbar"
             layout="@layout/toolbar" />
-    </android.support.design.widget.AppBarLayout>
 
 
     <android.support.design.widget.BottomNavigationView
@@ -26,4 +20,4 @@
         app:itemIconTint="@drawable/selector"
         app:itemTextColor="@drawable/selector"
         app:menu="@menu/bottom_navigation" />
-</android.support.design.widget.CoordinatorLayout>
+    </android.support.design.widget.CoordinatorLayout>

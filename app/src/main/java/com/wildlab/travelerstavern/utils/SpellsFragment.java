@@ -20,9 +20,9 @@ import com.wildlab.travelerstavern.R;
  * @since 9/14/2017.
  */
 
-public class BuildFragment extends Fragment {
+public class SpellsFragment extends Fragment {
 
-    private static final String TAG = "BuildFragment";
+    private static final String TAG = "SpellsFragment";
     private ProgressBar progressBar;
     private EditText editApi;
     private TextView response;

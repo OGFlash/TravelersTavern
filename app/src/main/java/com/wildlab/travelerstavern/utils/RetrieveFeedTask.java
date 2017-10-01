@@ -15,19 +15,19 @@ import java.net.URL;
 
 class RetrieveFeedTask extends AsyncTask<String, Void, String> {
 
-    BuildFragment buildFragment;
+    SpellsFragment spellsFragment;
     private static final String API_URL = "http://dnd5eapi.co/api/";
 
-    public RetrieveFeedTask(BuildFragment fragment){
-        this.buildFragment = fragment;
+    public RetrieveFeedTask(SpellsFragment fragment){
+        this.spellsFragment = fragment;
     }
 
     protected void onPreExecute() {
-        buildFragment.showProgressBar();
+        spellsFragment.showProgressBar();
     }
 
     protected String doInBackground(String... urls) {
-        String query = buildFragment.getEditApiText();
+        String query = spellsFragment.getEditApiText();
         // Do some validation here
 
         try {
@@ -58,9 +58,9 @@ class RetrieveFeedTask extends AsyncTask<String, Void, String> {
         if(response == null) {
             response = "THERE WAS AN ERROR";
         }
-        buildFragment.hideProgressBar();
-        buildFragment.populateResults(response);
-        this.buildFragment = null;
+        spellsFragment.hideProgressBar();
+        spellsFragment.populateResults(response);
+        this.spellsFragment = null;
     }
 }
 
