@@ -1,0 +1,356 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:visibility="gone"
+        app:srcCompat="@drawable/dungeons_and_dragons" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:text="Feeling Lucky?"
+            android:textAlignment="center"
+            android:textColor="#32cd32"
+            android:textSize="40sp" />
+
+        <TableLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:weightSum="4">
+
+                <TextView
+                    android:id="@+id/dice_select"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight=".5"
+                    android:text="Select Dice"
+                    android:textAlignment="center" />
+
+                <TextView
+                    android:id="@+id/dice_amount"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight=".5"
+                    android:text="#"
+                    android:textAlignment="center" />
+
+                <TextView
+                    android:id="@+id/dice_rolls"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="2"
+                    android:text="Rolls"
+                    android:textAlignment="center" />
+
+                <TextView
+                    android:id="@+id/dice_subtotal"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="Dice Subtotal"
+                    android:textAlignment="center" />
+            </TableRow>
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:weightSum="4">
+
+                <ImageButton
+                    android:id="@+id/dice_d4_image"
+                    android:layout_width="40dp"
+                    android:layout_height="60dp"
+                    android:layout_weight=".5"
+                    android:src="@drawable/d4"
+                    android:adjustViewBounds="true"
+                    android:scaleType="fitCenter"
+                    android:background="@color/transparentBlack"/>
+
+                <EditText
+                    android:id="@+id/dice_d4_amount"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight=".5"
+                    android:enabled="false" />
+
+                <ScrollView android:layout_weight="2">
+
+                    <TextView
+                        android:id="@+id/dice_d4_rolls"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:ellipsize="end"
+                        android:maxLines="1"
+                        android:textSize="30sp" />
+                </ScrollView>
+
+                <TextView
+                    android:id="@+id/dice_d4_subtotal"
+                    android:layout_weight="1"
+                    android:textAlignment="center"
+                    android:textSize="50sp" />
+            </TableRow>
+
+            <TableRow
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:weightSum="4">
+
+                <ImageButton
+                    android:id="@+id/dice_d6_image"
+                    android:layout_width="wrap_content"
+                    android:layout_height="60dp"
+                    android:layout_weight=".5" />
+
+                <EditText
+                    android:id="@+id/dice_d6_amount"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight=".5"
+                    android:enabled="false" />
+
+                <ScrollView android:layout_weight="2">
+
+                    <TextView
+                        android:id="@+id/dice_d6_rolls"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:ellipsize="end"
+                        android:maxLines="1"
+                        android:textSize="30sp" />
+                </ScrollView>
+
+                <TextView
+                    android:id="@+id/dice_d6_subtotal"
+                    android:layout_weight="1"
+                    android:textAlignment="center"
+                    android:textSize="50sp" />
+            </TableRow>
+
+            <TableRow
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:weightSum="4">
+
+                <ImageButton
+                    android:id="@+id/dice_d8_image"
+                    android:layout_width="wrap_content"
+                    android:layout_height="60dp"
+                    android:layout_weight=".5" />
+
+                <EditText
+                    android:id="@+id/dice_d8_amount"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight=".5"
+                    android:enabled="false" />
+
+                <ScrollView android:layout_weight="2">
+
+                    <TextView
+                        android:id="@+id/dice_d8_rolls"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:ellipsize="end"
+                        android:maxLines="1"
+                        android:textSize="30sp" />
+                </ScrollView>
+
+                <TextView
+                    android:id="@+id/dice_d8_subtotal"
+                    android:layout_weight="1"
+                    android:textAlignment="center"
+                    android:textSize="50sp" />
+            </TableRow>
+
+            <TableRow
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:weightSum="4">
+
+                <ImageButton
+                    android:id="@+id/dice_d10_image"
+                    android:layout_width="wrap_content"
+                    android:layout_height="60dp"
+                    android:layout_weight=".5" />
+
+                <EditText
+                    android:id="@+id/dice_d10_amount"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight=".5"
+                    android:enabled="false" />
+
+                <ScrollView android:layout_weight="2">
+
+                    <TextView
+                        android:id="@+id/dice_d10_rolls"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:ellipsize="end"
+                        android:maxLines="1"
+                        android:textSize="30sp" />
+                </ScrollView>
+
+                <TextView
+                    android:id="@+id/dice_d10_subtotal"
+                    android:layout_weight="1"
+                    android:textAlignment="center"
+                    android:textSize="50sp" />
+            </TableRow>
+
+            <TableRow
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:weightSum="4">
+
+                <ImageButton
+                    android:id="@+id/dice_d12_image"
+                    android:layout_width="wrap_content"
+                    android:layout_height="60dp"
+                    android:layout_weight=".5" />
+
+                <EditText
+                    android:id="@+id/dice_d12_amount"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight=".5"
+                    android:enabled="false" />
+
+                <ScrollView android:layout_weight="2">
+
+                    <TextView
+                        android:id="@+id/dice_d12_rolls"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:ellipsize="end"
+                        android:maxLines="1"
+                        android:textSize="30sp" />
+                </ScrollView>
+
+                <TextView
+                    android:id="@+id/dice_d12_subtotal"
+                    android:layout_weight="1"
+                    android:textAlignment="center"
+                    android:textSize="50sp" />
+            </TableRow>
+
+            <TableRow
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:weightSum="4">
+
+                <ImageButton
+                    android:id="@+id/dice_d20_image"
+                    android:layout_width="wrap_content"
+                    android:layout_height="60dp"
+                    android:layout_weight=".5" />
+
+                <EditText
+                    android:id="@+id/dice_d20_amount"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight=".5"
+                    android:enabled="false" />
+
+                <ScrollView android:layout_weight="2">
+
+                    <TextView
+                        android:id="@+id/dice_d20_rolls"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:ellipsize="end"
+                        android:maxLines="1"
+                        android:textSize="30sp" />
+                </ScrollView>
+
+                <TextView
+                    android:id="@+id/dice_d20_subtotal"
+                    android:layout_weight="1"
+                    android:textAlignment="center"
+                    android:textSize="50sp" />
+            </TableRow>
+
+            <TableRow
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:weightSum="4">
+
+                <ImageButton
+                    android:id="@+id/dice_d100_image"
+                    android:layout_width="wrap_content"
+                    android:layout_height="60dp"
+                    android:layout_weight=".5" />
+
+                <EditText
+                    android:id="@+id/dice_d100_amount"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight=".5"
+                    android:enabled="false" />
+
+                <ScrollView android:layout_weight="2">
+
+                    <TextView
+                        android:id="@+id/dice_d100_rolls"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:ellipsize="end"
+                        android:maxLines="1"
+                        android:textSize="30sp" />
+                </ScrollView>
+
+                <TextView
+                    android:id="@+id/dice_d100_subtotal"
+                    android:layout_weight="1"
+                    android:textAlignment="center"
+                    android:textSize="50sp" />
+            </TableRow>
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:weightSum="1">
+
+                <TextView
+                    android:id="@+id/dice_total_title"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="TOTAL:"
+                    android:textAlignment="center"
+                    android:textSize="20sp" />
+            </TableRow>
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:weightSum="1">
+
+                <TextView
+                    android:id="@+id/dice_total"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:textAlignment="center"
+                    android:textSize="30sp" />
+            </TableRow>
+        </TableLayout>
+    </LinearLayout>
+</FrameLayout>
