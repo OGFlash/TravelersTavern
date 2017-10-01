@@ -1,4 +1,4 @@
-package com.wildlab.travelerstavern.utils;
+package com.wildlab.travelerstavern.fragments;
 
 
 import android.os.Bundle;
@@ -11,6 +11,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ProgressBar;
 import android.widget.TextView;
+import com.wildlab.travelerstavern.api.RetrieveFeedTask;
 
 import com.wildlab.travelerstavern.R;
 
@@ -20,9 +21,9 @@ import com.wildlab.travelerstavern.R;
  * @since 9/14/2017.
  */
 
-public class BuildFragment extends Fragment {
+public class SpellsFragment extends Fragment {
 
-    private static final String TAG = "BuildFragment";
+    private static final String TAG = "SpellsFragment";
     private ProgressBar progressBar;
     private EditText editApi;
     private TextView response;

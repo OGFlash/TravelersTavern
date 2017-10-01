@@ -1,4 +1,4 @@
-package com.wildlab.travelerstavern.utils;
+package com.wildlab.travelerstavern.fragments;
 
 
 import android.os.Bundle;
@@ -15,8 +15,8 @@ import com.wildlab.travelerstavern.R;
  * @since 9/14/2017.
  */
 
-public class CreateFragment extends Fragment{
-    private static final String TAG = "CreateFragment";
+public class CharacterFragment extends Fragment{
+    private static final String TAG = "CharacterFragment";
 
 
     @Nullable

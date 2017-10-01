@@ -153,7 +153,7 @@ public class CharacterInfoActivity extends AppCompatActivity{
                 break;
             case R.id.top_settings_share:
                 msg = "Settings!";
-                Intent intentDD = new Intent(getApplicationContext(), DAndDActivity.class);
+                Intent intentDD = new Intent(getApplicationContext(), DnDActivity.class);
                 startActivity(intentDD);
                 break;
             case R.id.top_settings_settings:
@@ -175,7 +175,6 @@ public class CharacterInfoActivity extends AppCompatActivity{
         dialogBuilder.setView(dialogView);
 
         final EditText edtStr = (EditText) dialogView.findViewById(R.id.character_str);
-
 
         dialogBuilder.setTitle("Update Strength");
         dialogBuilder.setMessage("Update Below");

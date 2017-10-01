@@ -1,4 +1,4 @@
-package com.wildlab.travelerstavern.utils;
+package com.wildlab.travelerstavern.fragments;
 
 
 import android.content.DialogInterface;
@@ -14,7 +14,8 @@ import android.widget.Button;
 import android.widget.EditText;
 
 import com.wildlab.travelerstavern.R;
-import com.wildlab.travelerstavern.data.DatabaseHelper;
+import com.wildlab.travelerstavern.db.DatabaseHelper;
+import com.wildlab.travelerstavern.utils.Character;
 
 import java.util.ArrayList;
 

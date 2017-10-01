@@ -8,7 +8,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.Toast;
 
-import com.wildlab.travelerstavern.DAndDActivity;
+import com.wildlab.travelerstavern.DnDActivity;
 import com.wildlab.travelerstavern.R;
 
 /**
@@ -45,7 +45,7 @@ public class ActionToolBar extends AppCompatActivity {
                 break;
             case R.id.top_settings_share:
                 msg = "Settings!";
-                Intent intentDD = new Intent(getApplicationContext(), DAndDActivity.class);
+                Intent intentDD = new Intent(getApplicationContext(), DnDActivity.class);
                 startActivity(intentDD);
                 break;
             case R.id.top_settings_settings:

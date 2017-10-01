@@ -7,7 +7,7 @@ import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
 
-import com.wildlab.travelerstavern.data.DatabaseHelper;
+import com.wildlab.travelerstavern.db.DatabaseHelper;
 import com.wildlab.travelerstavern.utils.Character;
 import com.wildlab.travelerstavern.utils.CharacterAdapter;
 
@@ -17,7 +17,7 @@ import java.util.ArrayList;
  * Created by Owner on 9/30/2017.
  */
 
-public class DndOpeningActivity extends AppCompatActivity {
+public class DnDOpeningActivity extends AppCompatActivity {
 
     private ArrayList<Character> characters;
     private RecyclerView recyclerView;
@@ -52,11 +52,11 @@ public class DndOpeningActivity extends AppCompatActivity {
         floatingActionButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                DatabaseHelper.insertCharacterFull(dbHelper.getWritableDatabase(), "OogBlur", "Warrior", 1, 100, 18, 28, 15, 14, 12, 10, 30, 40);
+               // DatabaseHelper.insertCharacterFull(dbHelper.getWritableDatabase(), "OogBlur", "Warrior", 1, 100, 18, 28, 15, 14, 12, 10, 30, 40);
                 ArrayList<Character> characters = dbHelper.getAllCharacterRecords();
-                characterAdapter = new CharacterAdapter(DndOpeningActivity.this, characters);
+                characterAdapter = new CharacterAdapter(DnDOpeningActivity.this, characters);
                 recycler.setAdapter(characterAdapter);
-                recycler.setLayoutManager(new LinearLayoutManager(DndOpeningActivity.this));
+                recycler.setLayoutManager(new LinearLayoutManager(DnDOpeningActivity.this));
             }
         });
     }

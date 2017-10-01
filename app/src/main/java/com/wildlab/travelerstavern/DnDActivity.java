@@ -15,7 +15,11 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.Toast;
 
-import com.wildlab.travelerstavern.utils.SkillsFragment;
+import com.wildlab.travelerstavern.fragments.CharacterFragment;
+import com.wildlab.travelerstavern.fragments.DiceFragment;
+import com.wildlab.travelerstavern.fragments.EquipmentFragment;
+import com.wildlab.travelerstavern.fragments.SkillsFragment;
+import com.wildlab.travelerstavern.fragments.SpellsFragment;
 
 /**
  * @author Andrew King
@@ -23,15 +27,28 @@ import com.wildlab.travelerstavern.utils.SkillsFragment;
  * @since 9/15/2017.
  */
 
-public class DAndDActivity extends AppCompatActivity {
+public class DnDActivity extends AppCompatActivity {
     private Toolbar toolBar;
     private BottomNavigationView navigationView;
     private BottomNavigationView.OnNavigationItemSelectedListener navItemSelectedListener;
+
+    private CharacterFragment characterFragment;
+    private SkillsFragment skillsFragment;
+    private SpellsFragment spellsFragment;
+    private EquipmentFragment equipmentFragment;
+    private DiceFragment diceFragment;
+
 
     @Override
     protected void onCreate(Bundle saveInstantstate) {
         super.onCreate(saveInstantstate);
         setContentView(R.layout.dnd_activity);
+
+        characterFragment = new CharacterFragment();
+        skillsFragment = new SkillsFragment();
+        spellsFragment = new SpellsFragment();
+        equipmentFragment = new EquipmentFragment();
+        diceFragment = new DiceFragment();
 
         toolBar = (Toolbar) findViewById(R.id.toolbar);
         navigationView = (BottomNavigationView) findViewById(R.id.navigation);
@@ -91,15 +108,19 @@ public class DAndDActivity extends AppCompatActivity {
 
         switch (item.getItemId()) {
             case R.id.navigation_character:
+                openFragment(characterFragment);
                 break;
             case R.id.navigation_skills:
-                openFragment(new SkillsFragment());
+                openFragment(skillsFragment);
                 break;
             case R.id.navigation_spells:
+                openFragment(spellsFragment);
                 break;
             case R.id.navigation_equipment:
+                openFragment(equipmentFragment);
                 break;
             case R.id.navigation_dice:
+                openFragment(diceFragment);
                 break;
             default:
                 break;

@@ -1,7 +1,9 @@
-package com.wildlab.travelerstavern.utils;
+package com.wildlab.travelerstavern.api;
 
 import android.os.AsyncTask;
 import android.util.Log;
+
+import com.wildlab.travelerstavern.fragments.SpellsFragment;
 
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
@@ -13,21 +15,21 @@ import java.net.URL;
  * @since 9/15/2017.
  */
 
-class RetrieveFeedTask extends AsyncTask<String, Void, String> {
+public class RetrieveFeedTask extends AsyncTask<String, Void, String> {
 
-    BuildFragment buildFragment;
+    SpellsFragment spellsFragment;
     private static final String API_URL = "http://dnd5eapi.co/api/";
 
-    public RetrieveFeedTask(BuildFragment fragment){
-        this.buildFragment = fragment;
+    public RetrieveFeedTask(SpellsFragment fragment){
+        this.spellsFragment = fragment;
     }
 
     protected void onPreExecute() {
-        buildFragment.showProgressBar();
+        spellsFragment.showProgressBar();
     }
 
     protected String doInBackground(String... urls) {
-        String query = buildFragment.getEditApiText();
+        String query = spellsFragment.getEditApiText();
         // Do some validation here
 
         try {
@@ -58,9 +60,9 @@ class RetrieveFeedTask extends AsyncTask<String, Void, String> {
         if(response == null) {
             response = "THERE WAS AN ERROR";
         }
-        buildFragment.hideProgressBar();
-        buildFragment.populateResults(response);
-        this.buildFragment = null;
+        spellsFragment.hideProgressBar();
+        spellsFragment.populateResults(response);
+        this.spellsFragment = null;
     }
 }
 
