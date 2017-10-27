@@ -27,11 +27,16 @@ public class DnDOpeningActivity extends AppCompatActivity {
     private CharacterAdapter characterAdapter;
     private DatabaseHelper dbHelper;
     private FloatingActionButton floatingActionButton;
+    private int counter = 0;
 
     @Override
     protected void onCreate(Bundle saveInstantstate) {
         super.onCreate(saveInstantstate);
         setContentView(R.layout.dnd_open_content);
+
+
+
+
 
         dbHelper = new DatabaseHelper(this, DatabaseHelper.DB_NAME, null, 1);
         recycler = (RecyclerView) findViewById(R.id.listViewCharacters);
@@ -52,7 +57,9 @@ public class DnDOpeningActivity extends AppCompatActivity {
         floatingActionButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-               // DatabaseHelper.insertCharacterFull(dbHelper.getWritableDatabase(), "OogBlur", "Warrior", 1, 100, 18, 28, 15, 14, 12, 10, 30, 40);
+                if(counter == 0) {
+                    DatabaseHelper.insertCharacterFull(dbHelper.getWritableDatabase(), "OogBlur", "Warrior", 1, 100, 18, 28, 15, 14, 12, 10, 30, 40);
+                }
                 ArrayList<Character> characters = dbHelper.getAllCharacterRecords();
                 characterAdapter = new CharacterAdapter(DnDOpeningActivity.this, characters);
                 recycler.setAdapter(characterAdapter);

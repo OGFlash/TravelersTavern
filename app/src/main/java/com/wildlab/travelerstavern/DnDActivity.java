@@ -5,12 +5,12 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.design.widget.BottomNavigationView;
-
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.Toast;
@@ -50,6 +50,34 @@ public class DnDActivity extends AppCompatActivity {
         equipmentFragment = new EquipmentFragment();
         diceFragment = new DiceFragment();
 
+
+        Bundle currentBundle = getIntent().getExtras();
+        String stringName = (String) currentBundle.get("name");
+        String stringClass = (String)currentBundle.get("className");
+        Integer stringLevel = (Integer) currentBundle.get("level");
+        Integer str = (Integer) currentBundle.get("str");
+        Integer dex = (Integer) currentBundle.get("dex");
+        Integer con = (Integer) currentBundle.get("con");
+        Integer intel = (Integer) currentBundle.get("int");
+        Integer wis = (Integer) currentBundle.get("wis");
+        Integer cha = (Integer) currentBundle.get("cha");
+        Integer ac = (Integer) currentBundle.get("ac");
+        Integer health = (Integer) currentBundle.get("health");
+        Integer speed = (Integer) currentBundle.get("speed");
+
+
+        Log.e("** stringSTR()", str.toString());
+        Log.e("** dex()", dex.toString());
+        Log.e("** con()", con.toString());
+        Log.e("** intel()", intel.toString());
+        Log.e("** wis()", wis.toString());
+        Log.e("** cha()", cha.toString());
+        Log.e("** ac()", ac.toString());
+        Log.e("** speed()", speed.toString());
+        Log.e("** health()", health.toString());
+
+
+
         toolBar = (Toolbar) findViewById(R.id.toolbar);
         navigationView = (BottomNavigationView) findViewById(R.id.navigation);
 
@@ -57,7 +85,7 @@ public class DnDActivity extends AppCompatActivity {
 
         if (toolBar != null) {
             getSupportActionBar().setTitle("Travelers Tavern");
-            toolBar.setSubtitle("Name: ___________");
+            toolBar.setSubtitle(stringName + "  " + stringClass + "  " + stringLevel);
         }
 
         setListeners();
@@ -139,5 +167,6 @@ public class DnDActivity extends AppCompatActivity {
                 ft.commit();
             }
         }
+
     }
 }

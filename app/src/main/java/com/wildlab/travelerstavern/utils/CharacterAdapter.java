@@ -59,18 +59,18 @@ public class CharacterAdapter extends RecyclerView.Adapter<CharacterAdapter.View
 
 
             Intent intentDD = new Intent(getContext(), DnDActivity.class);
-//            intentDD.putExtra("name", character.getClassName());
-//            intentDD.putExtra("className", character.getClassName());
-//            intentDD.putExtra("level", character.getLevel());
-//            intentDD.putExtra("str", dbHelper.getSelectedCharactersStr(character));
-//            intentDD.putExtra("dex", dbHelper.getSelectedCharactersDex(character));
-//            intentDD.putExtra("con", dbHelper.getSelectedCharactersCon(character));
-//            intentDD.putExtra("int", dbHelper.getSelectedCharactersInt(character));
-//            intentDD.putExtra("wis", dbHelper.getSelectedCharactersWis(character));
-//            intentDD.putExtra("cha", dbHelper.getSelectedCharactersCha(character));
-//            intentDD.putExtra("health", dbHelper.getSelectedCharactersHealth(character));
-//            intentDD.putExtra("ac", dbHelper.getSelectedCharactersAC(character));
-//            intentDD.putExtra("speed", dbHelper.getSelectedCharactersSpeed(character));
+            intentDD.putExtra("name", character.getName());
+            intentDD.putExtra("className", character.getClassName());
+            intentDD.putExtra("level", character.getLevel());
+            intentDD.putExtra("str", dbHelper.getSelectedCharactersStr(character));
+            intentDD.putExtra("dex", dbHelper.getSelectedCharactersDex(character));
+            intentDD.putExtra("con", dbHelper.getSelectedCharactersCon(character));
+            intentDD.putExtra("int", dbHelper.getSelectedCharactersInt(character));
+            intentDD.putExtra("wis", dbHelper.getSelectedCharactersWis(character));
+            intentDD.putExtra("cha", dbHelper.getSelectedCharactersCha(character));
+            intentDD.putExtra("health", dbHelper.getSelectedCharactersHealth(character));
+            intentDD.putExtra("ac", dbHelper.getSelectedCharactersAC(character));
+            intentDD.putExtra("speed", dbHelper.getSelectedCharactersSpeed(character));
             view.getContext().startActivity(intentDD);
 
 
