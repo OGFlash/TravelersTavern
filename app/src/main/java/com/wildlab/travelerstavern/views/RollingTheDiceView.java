@@ -7,12 +7,6 @@ import java.util.Random;
  */
 
 class RollingTheDiceView {
-    private int generateRandomNumber(int topRoll){
-        Random random = new Random();
-        int randomNumber;
-        randomNumber = random.nextInt(topRoll) + 1;
-        return randomNumber;
-    }
 
 
 }

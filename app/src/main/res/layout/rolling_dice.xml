@@ -72,22 +72,23 @@
                 android:layout_height="wrap_content"
                 android:weightSum="4">
 
-                <ImageButton
+                <ToggleButton
                     android:id="@+id/dice_d4_image"
                     android:layout_width="40dp"
                     android:layout_height="60dp"
                     android:layout_weight=".5"
-                    android:src="@drawable/d4"
-                    android:adjustViewBounds="true"
-                    android:scaleType="fitCenter"
-                    android:background="@color/transparentBlack"/>
+                    android:layout_margin="5dp"
+                    android:background="@drawable/dice_selected_state"
+                    android:textOff="d4"
+                    android:textOn="d4"/>
 
                 <EditText
                     android:id="@+id/dice_d4_amount"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight=".5"
-                    android:enabled="false" />
+                    android:inputType="number"
+                    android:text="" />
 
                 <ScrollView android:layout_weight="2">
 
@@ -112,17 +113,22 @@
                 android:layout_height="wrap_content"
                 android:weightSum="4">
 
-                <ImageButton
+                <ToggleButton
                     android:id="@+id/dice_d6_image"
                     android:layout_width="wrap_content"
                     android:layout_height="60dp"
-                    android:layout_weight=".5" />
+                    android:layout_weight=".5"
+                    android:layout_margin="5dp"
+                    android:background="@drawable/dice_selected_state"
+                    android:textOff="d6"
+                    android:textOn="d6"/>
 
                 <EditText
                     android:id="@+id/dice_d6_amount"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight=".5"
+                    android:inputType="number"
                     android:enabled="false" />
 
                 <ScrollView android:layout_weight="2">
@@ -148,17 +154,22 @@
                 android:layout_height="wrap_content"
                 android:weightSum="4">
 
-                <ImageButton
+                <ToggleButton
                     android:id="@+id/dice_d8_image"
                     android:layout_width="wrap_content"
                     android:layout_height="60dp"
-                    android:layout_weight=".5" />
+                    android:layout_weight=".5"
+                    android:layout_margin="5dp"
+                    android:background="@drawable/dice_selected_state"
+                    android:textOff="d8"
+                    android:textOn="d8"/>
 
                 <EditText
                     android:id="@+id/dice_d8_amount"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight=".5"
+                    android:inputType="number"
                     android:enabled="false" />
 
                 <ScrollView android:layout_weight="2">
@@ -184,17 +195,22 @@
                 android:layout_height="wrap_content"
                 android:weightSum="4">
 
-                <ImageButton
+                <ToggleButton
                     android:id="@+id/dice_d10_image"
                     android:layout_width="wrap_content"
                     android:layout_height="60dp"
-                    android:layout_weight=".5" />
+                    android:layout_weight=".5"
+                    android:layout_margin="5dp"
+                    android:background="@drawable/dice_selected_state"
+                    android:textOff="d10"
+                    android:textOn="d10"/>
 
                 <EditText
                     android:id="@+id/dice_d10_amount"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight=".5"
+                    android:inputType="number"
                     android:enabled="false" />
 
                 <ScrollView android:layout_weight="2">
@@ -220,17 +236,22 @@
                 android:layout_height="wrap_content"
                 android:weightSum="4">
 
-                <ImageButton
+                <ToggleButton
                     android:id="@+id/dice_d12_image"
                     android:layout_width="wrap_content"
                     android:layout_height="60dp"
-                    android:layout_weight=".5" />
+                    android:layout_weight=".5"
+                    android:layout_margin="5dp"
+                    android:background="@drawable/dice_selected_state"
+                    android:textOff="d12"
+                    android:textOn="d12"/>
 
                 <EditText
                     android:id="@+id/dice_d12_amount"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight=".5"
+                    android:inputType="number"
                     android:enabled="false" />
 
                 <ScrollView android:layout_weight="2">
@@ -256,17 +277,22 @@
                 android:layout_height="wrap_content"
                 android:weightSum="4">
 
-                <ImageButton
+                <ToggleButton
                     android:id="@+id/dice_d20_image"
                     android:layout_width="wrap_content"
                     android:layout_height="60dp"
-                    android:layout_weight=".5" />
+                    android:layout_weight=".5"
+                    android:layout_margin="5dp"
+                    android:background="@drawable/dice_selected_state"
+                    android:textOff="d20"
+                    android:textOn="d20"/>
 
                 <EditText
                     android:id="@+id/dice_d20_amount"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight=".5"
+                    android:inputType="number"
                     android:enabled="false" />
 
                 <ScrollView android:layout_weight="2">
@@ -292,17 +318,22 @@
                 android:layout_height="wrap_content"
                 android:weightSum="4">
 
-                <ImageButton
+                <ToggleButton
                     android:id="@+id/dice_d100_image"
                     android:layout_width="wrap_content"
                     android:layout_height="60dp"
-                    android:layout_weight=".5" />
+                    android:layout_weight=".5"
+                    android:layout_margin="5dp"
+                    android:background="@drawable/dice_selected_state"
+                    android:textOff="d100"
+                    android:textOn="d100"/>
 
                 <EditText
                     android:id="@+id/dice_d100_amount"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight=".5"
+                    android:inputType="number"
                     android:enabled="false" />
 
                 <ScrollView android:layout_weight="2">
