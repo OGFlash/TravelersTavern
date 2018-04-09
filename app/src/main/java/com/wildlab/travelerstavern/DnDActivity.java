@@ -64,8 +64,10 @@ public class DnDActivity extends AppCompatActivity {
         Integer ac = (Integer) currentBundle.get("ac");
         Integer health = (Integer) currentBundle.get("health");
         Integer speed = (Integer) currentBundle.get("speed");
+        String id = (String) currentBundle.get("id");
 
-
+        Log.e("** health()", health.toString());
+        Log.e("** speed()", speed.toString());
         Log.e("** stringSTR()", str.toString());
         Log.e("** dex()", dex.toString());
         Log.e("** con()", con.toString());
@@ -73,8 +75,23 @@ public class DnDActivity extends AppCompatActivity {
         Log.e("** wis()", wis.toString());
         Log.e("** cha()", cha.toString());
         Log.e("** ac()", ac.toString());
-        Log.e("** speed()", speed.toString());
-        Log.e("** health()", health.toString());
+        Log.e("** id()", id.toString());
+
+        Bundle bundleSkills = new Bundle();
+        bundleSkills.putString("name", stringName);
+        bundleSkills.putString("className", stringClass);
+        bundleSkills.putInt("level", stringLevel);
+        bundleSkills.putInt("str", str);
+        bundleSkills.putInt("dex", dex);
+        bundleSkills.putInt("con", con);
+        bundleSkills.putInt("int", intel);
+        bundleSkills.putInt("wis", wis);
+        bundleSkills.putInt("cha", cha);
+        bundleSkills.putInt("health", health);
+        bundleSkills.putInt("ac", ac);
+        bundleSkills.putInt("speed", speed);
+        bundleSkills.putInt("id", Integer.valueOf(id));
+        skillsFragment.setArguments(bundleSkills);
 
 
 
@@ -90,6 +107,9 @@ public class DnDActivity extends AppCompatActivity {
 
         setListeners();
         navigationView.setOnNavigationItemSelectedListener(navItemSelectedListener);
+        if(characterFragment != null) {
+            openFragment(characterFragment);
+        }
     }
 
     @Override

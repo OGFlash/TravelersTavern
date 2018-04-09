@@ -112,7 +112,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         dbLocal.close();
         return characters;
     }
-    //TODO TEST THIS TO SEE IF YOU CAN GET A UNIQUE CHARACTER ID FOR WHAT IS SELECTED
+
     public Integer getSelectedCharactersStr(Character character) {
         Integer str = null;
         dbLocal = this.getReadableDatabase();
@@ -126,6 +126,12 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         cursor.close();
         dbLocal.close();
         return str;
+    }
+
+    public void updateCharactersStrength(int id, Integer str) {
+        dbLocal = this.getWritableDatabase();
+        dbLocal.rawQuery("UPDATE " + TABLE_NAME + " SET " + COLUMN_STR + " ='" + str + "' " + "WHERE _id='"+id+"'", null);
+        dbLocal.close();
     }
 
     public Integer getSelectedCharactersDex(Character character) {
@@ -206,7 +212,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     public Integer getSelectedCharactersHealth(Character character) {
         Integer heal = null;
         dbLocal = this.getReadableDatabase();
-        Cursor cursor = dbLocal.rawQuery("SELECT " + COLUMN_CHA + " FROM " + TABLE_NAME + " WHERE _id='"+character.getID()+"'", null);
+        Cursor cursor = dbLocal.rawQuery("SELECT " + COLUMN_HEALTH + " FROM " + TABLE_NAME + " WHERE _id='"+character.getID()+"'", null);
         if (cursor.getCount() > 0) {
             for (int i = 0; i < cursor.getCount(); i++) {
                 cursor.moveToNext();
@@ -221,7 +227,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     public Integer getSelectedCharactersAC(Character character) {
         Integer ac = null;
         dbLocal = this.getReadableDatabase();
-        Cursor cursor = dbLocal.rawQuery("SELECT " + COLUMN_CHA + " FROM " + TABLE_NAME + " WHERE _id='"+character.getID()+"'", null);
+        Cursor cursor = dbLocal.rawQuery("SELECT " + COLUMN_AC + " FROM " + TABLE_NAME + " WHERE _id='"+character.getID()+"'", null);
         if (cursor.getCount() > 0) {
             for (int i = 0; i < cursor.getCount(); i++) {
                 cursor.moveToNext();
@@ -236,7 +242,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     public Integer getSelectedCharactersSpeed(Character character) {
         Integer speed = null;
         dbLocal = this.getReadableDatabase();
-        Cursor cursor = dbLocal.rawQuery("SELECT " + COLUMN_CHA + " FROM " + TABLE_NAME + " WHERE _id='"+character.getID()+"'", null);
+        Cursor cursor = dbLocal.rawQuery("SELECT " + COLUMN_SPEED + " FROM " + TABLE_NAME + " WHERE _id='"+character.getID()+"'", null);
         if (cursor.getCount() > 0) {
             for (int i = 0; i < cursor.getCount(); i++) {
                 cursor.moveToNext();

@@ -80,6 +80,8 @@ public class SkillsFragment extends Fragment {
     private int wisdom;
     private int charisma;
 
+    private int id;
+
     private String healthString;
     private String acString;
     private String strengthString;
@@ -129,6 +131,63 @@ public class SkillsFragment extends Fragment {
 
         dbHelper = new DatabaseHelper(getContext(), DatabaseHelper.DB_NAME, null, 1);
         characters = dbHelper.getAllCharacterRecords();
+
+        String stringName =  getArguments().getString("name");
+        String stringClass = getArguments().getString("className");
+        Integer stringLevel = getArguments().getInt("level");
+
+
+        Integer str = getArguments().getInt("str");
+        Integer dex = getArguments().getInt("dex");
+        Integer con = getArguments().getInt("con");
+        Integer intel = getArguments().getInt("int");
+        Integer wis = getArguments().getInt("wis");
+        Integer cha =  getArguments().getInt("cha");
+        Integer ac = getArguments().getInt("ac");
+        Integer health = getArguments().getInt("health");
+        Integer speed = getArguments().getInt("speed");
+        id = getArguments().getInt("id");
+
+
+        if(buttonHealthTotal != null){
+            buttonHealthTotal.setText(HEALTH + "\n" + String.valueOf(health));
+        }
+        if(buttonHealthCurrent != null){
+            buttonHealthCurrent.setText(HEALTHCURRENT + "\n" + String.valueOf(health));
+        }
+        if(buttonHealthWalkSpeed != null){
+            buttonHealthWalkSpeed.setText(SPEED + "\n" + String.valueOf(speed));
+        }
+        if(acTotal != null){
+            acTotal.setText(AC + "\n" + String.valueOf(ac));
+        }
+        if(acCurrent != null){
+            acCurrent.setText(ACCURRENT + "\n" + String.valueOf(ac));
+        }
+        if(strTotal != null){
+            strTotal.setText(STR + "\n" + String.valueOf(str));
+            updateModifier(String.valueOf(str), strModifier);
+        }
+        if(dexTotal != null){
+            dexTotal.setText(DEX + "\n" + String.valueOf(dex));
+            updateModifier(String.valueOf(dex), dexModifier);
+        }
+        if(conTotal != null){
+            conTotal.setText(CON + "\n" + String.valueOf(con));
+            updateModifier(String.valueOf(con), conModifier);
+        }
+        if(intTotal != null){
+            intTotal.setText(INT + "\n" + String.valueOf(intel));
+            updateModifier(String.valueOf(intel), intModifier);
+        }
+        if(wisTotal != null){
+            wisTotal.setText(WIS + "\n" + String.valueOf(wis));
+            updateModifier(String.valueOf(wis), wisModifier);
+        }
+        if(chaTotal != null){
+            chaTotal.setText(CHA + "\n" + String.valueOf(cha));
+            updateModifier(String.valueOf(cha), chaModifier);
+        }
 
 
         buttonHealthTotal.setOnClickListener(new View.OnClickListener() {
@@ -286,6 +345,7 @@ public class SkillsFragment extends Fragment {
                 if(strengthString != null) {
                     Log.e(TAG, "onClick: " + strengthString);
                     strTotal.setText(STR + "\n" + strengthString);
+                    dbHelper.updateCharactersStrength(id , Integer.valueOf(strengthString));
                 }
                 updateModifier(strengthString, strModifier);
                 strengthString = null;

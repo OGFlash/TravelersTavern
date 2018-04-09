@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="300dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <EditText
+                android:id="@+id/new_characters_name"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="textPersonName"
+                android:layout_marginBottom="10dp"
+                android:hint="Enter Characters Name"/>
+
+            <EditText
+                android:id="@+id/new_characters_class_name"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="text"
+                android:layout_marginBottom="10dp"
+                android:hint="Enter Characters Class Name"/>
+
+            <EditText
+                android:id="@+id/new_characters_health"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="number"
+                android:layout_marginBottom="10dp"
+                android:hint="Enter Characters Health"/>
+
+            <EditText
+                android:id="@+id/new_characters_level"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="number"
+                android:layout_marginBottom="10dp"
+                android:hint="Enter Characters Level"/>
+
+            <EditText
+                android:id="@+id/new_characters_ac"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="number"
+                android:layout_marginBottom="10dp"
+                android:hint="Enter Characters AC"/>
+
+            <EditText
+                android:id="@+id/new_characters_speed"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="number"
+                android:layout_marginBottom="10dp"
+                android:hint="Enter Characters Speed"/>
+
+            <EditText
+                android:id="@+id/new_characters_str"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="number"
+                android:layout_marginBottom="10dp"
+                android:hint="Enter Characters Strength"/>
+
+            <EditText
+                android:id="@+id/new_characters_dex"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="number"
+                android:layout_marginBottom="10dp"
+                android:hint="Enter Characters Dexterity"/>
+
+
+            <EditText
+                android:id="@+id/new_characters_con"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="number"
+                android:layout_marginBottom="10dp"
+                android:hint="Enter Characters Constitution"/>
+
+
+            <EditText
+                android:id="@+id/new_characters_intel"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="number"
+                android:layout_marginBottom="10dp"
+                android:hint="Enter Characters Intelligence"/>
+
+
+            <EditText
+                android:id="@+id/new_characters_wis"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="number"
+                android:layout_marginBottom="10dp"
+                android:hint="Enter Characters Wisdom"/>
+
+            <EditText
+                android:id="@+id/new_characters_cha"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="number"
+                android:layout_marginBottom="10dp"
+                android:hint="Enter Characters Charisma"/>
+
+        </LinearLayout>
+    </ScrollView>
+
+</LinearLayout>

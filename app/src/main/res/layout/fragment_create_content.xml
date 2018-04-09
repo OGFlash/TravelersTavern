@@ -1,9 +1,24 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical"
+
+<android.support.design.widget.CoordinatorLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activity_character_info"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:baselineAligned="false">
+
+    <include layout="@layout/toolbar"
+        android:id="@+id/toolbar" />
 
 
+    <ExpandableListView
+        android:id="@+id/expandable_list_view"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="65dp">
 
-</LinearLayout>
+    </ExpandableListView>
+
+
+</android.support.design.widget.CoordinatorLayout>

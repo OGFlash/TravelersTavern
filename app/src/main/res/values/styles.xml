@@ -7,6 +7,7 @@
         <item name="colorPrimary">@color/colorPrimary</item>
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
         <item name="colorAccent">@color/colorWhite</item>
+        <item name="alertDialogTheme">@style/custom_dialog_theme</item>
 
     </style>
 
@@ -27,6 +28,7 @@
         <item name="android:actionBarStyle">@style/MyActionModeStyle</item>
         <item name="actionBarStyle">@style/MyActionModeStyle</item>
         <item name="android:windowFullscreen">true</item>
+        <item name="alertDialogTheme">@style/custom_dialog_theme</item>
     </style>
 
     <style name="MyActionModeStyle" parent="Widget.AppCompat.Light.ActionMode.Inverse">

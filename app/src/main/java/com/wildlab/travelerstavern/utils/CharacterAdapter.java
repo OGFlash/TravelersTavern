@@ -57,7 +57,6 @@ public class CharacterAdapter extends RecyclerView.Adapter<CharacterAdapter.View
 //            view.getContext().startActivity(intentCI);
 
 
-
             Intent intentDD = new Intent(getContext(), DnDActivity.class);
             intentDD.putExtra("name", character.getName());
             intentDD.putExtra("className", character.getClassName());
@@ -71,9 +70,8 @@ public class CharacterAdapter extends RecyclerView.Adapter<CharacterAdapter.View
             intentDD.putExtra("health", dbHelper.getSelectedCharactersHealth(character));
             intentDD.putExtra("ac", dbHelper.getSelectedCharactersAC(character));
             intentDD.putExtra("speed", dbHelper.getSelectedCharactersSpeed(character));
+            intentDD.putExtra("id", character.getID());
             view.getContext().startActivity(intentDD);
-
-
 
 
         }
