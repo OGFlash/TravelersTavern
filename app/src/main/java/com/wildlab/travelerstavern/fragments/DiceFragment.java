@@ -1,16 +1,13 @@
 package com.wildlab.travelerstavern.fragments;
 
-import android.content.Context;
 import android.content.res.Resources;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
-import android.text.InputType;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.view.inputmethod.InputMethodManager;
 import android.widget.CompoundButton;
 import android.widget.EditText;
 
@@ -27,19 +24,19 @@ import java.util.Random;
 public class DiceFragment extends Fragment {
     private static final String TAG = "DiceFragment";
 
-    private Dice d4;
+    private CompoundButton d4;
     private EditText d4Edit;
-    private Dice d6;
+    private CompoundButton d6;
     private EditText d6Edit;
-    private Dice d8;
+    private CompoundButton d8;
     private EditText d8Edit;
-    private Dice d10;
+    private CompoundButton d10;
     private EditText d10Edit;
-    private Dice d12;
+    private CompoundButton d12;
     private EditText d12Edit;
-    private Dice d20;
+    private CompoundButton d20;
     private EditText d20Edit;
-    private Dice d100;
+    private CompoundButton d100;
     private EditText d100Edit;
     private Resources resources;
     private View rootView;
