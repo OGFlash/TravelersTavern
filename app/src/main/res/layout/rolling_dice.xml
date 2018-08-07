@@ -54,7 +54,7 @@
                     android:id="@+id/dice_rolls"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_weight="2"
+                    android:layout_weight=".5"
                     android:text="Rolls"
                     android:textAlignment="center" />
 
@@ -62,25 +62,33 @@
                     android:id="@+id/dice_subtotal"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_weight="1"
+                    android:layout_weight="1.6"
                     android:text="Dice Subtotal"
                     android:textAlignment="center" />
+
+                <TextView
+                    android:id="@+id/dice_roll_button"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight=".5"
+                    android:text="GO"
+                    android:textAlignment="center"/>
             </TableRow>
 
             <TableRow
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="match_parent"
                 android:weightSum="4">
 
                 <ToggleButton
                     android:id="@+id/dice_d4_image"
                     android:layout_width="40dp"
                     android:layout_height="60dp"
-                    android:layout_weight=".5"
                     android:layout_margin="5dp"
+                    android:layout_weight=".5"
                     android:background="@drawable/dice_selected_state"
                     android:textOff="d4"
-                    android:textOn="d4"/>
+                    android:textOn="d4" />
 
                 <EditText
                     android:id="@+id/dice_d4_amount"
@@ -90,22 +98,25 @@
                     android:inputType="number"
                     android:text="" />
 
-                <ScrollView android:layout_weight="2">
-
-                    <TextView
-                        android:id="@+id/dice_d4_rolls"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:ellipsize="end"
-                        android:maxLines="1"
-                        android:textSize="30sp" />
-                </ScrollView>
+                <EditText
+                    android:id="@+id/dice_d4_rolls"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight=".4"
+                    android:enabled="false"
+                    android:inputType="number" />
 
                 <TextView
                     android:id="@+id/dice_d4_subtotal"
-                    android:layout_weight="1"
+                    android:layout_weight="2"
                     android:textAlignment="center"
                     android:textSize="50sp" />
+
+                <Button
+                    android:id="@+id/button_roll_d4"
+                    android:layout_height="wrap_content"
+                    android:layout_width="wrap_content"
+                    android:text="Roll"/>
             </TableRow>
 
             <TableRow
@@ -117,36 +128,39 @@
                     android:id="@+id/dice_d6_image"
                     android:layout_width="wrap_content"
                     android:layout_height="60dp"
-                    android:layout_weight=".5"
                     android:layout_margin="5dp"
+                    android:layout_weight=".5"
                     android:background="@drawable/dice_selected_state"
                     android:textOff="d6"
-                    android:textOn="d6"/>
+                    android:textOn="d6" />
 
                 <EditText
                     android:id="@+id/dice_d6_amount"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight=".5"
-                    android:inputType="number"
-                    android:enabled="false" />
+                    android:enabled="false"
+                    android:inputType="number" />
 
-                <ScrollView android:layout_weight="2">
-
-                    <TextView
-                        android:id="@+id/dice_d6_rolls"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:ellipsize="end"
-                        android:maxLines="1"
-                        android:textSize="30sp" />
-                </ScrollView>
+                <EditText
+                    android:id="@+id/dice_d6_rolls"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight=".4"
+                    android:enabled="false"
+                    android:inputType="number" />
 
                 <TextView
                     android:id="@+id/dice_d6_subtotal"
-                    android:layout_weight="1"
+                    android:layout_weight="2"
                     android:textAlignment="center"
                     android:textSize="50sp" />
+
+                <Button
+                    android:id="@+id/button_roll_d6"
+                    android:layout_height="wrap_content"
+                    android:layout_width="wrap_content"
+                    android:text="Roll"/>
             </TableRow>
 
             <TableRow
@@ -158,36 +172,39 @@
                     android:id="@+id/dice_d8_image"
                     android:layout_width="wrap_content"
                     android:layout_height="60dp"
-                    android:layout_weight=".5"
                     android:layout_margin="5dp"
+                    android:layout_weight=".5"
                     android:background="@drawable/dice_selected_state"
                     android:textOff="d8"
-                    android:textOn="d8"/>
+                    android:textOn="d8" />
 
                 <EditText
                     android:id="@+id/dice_d8_amount"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight=".5"
-                    android:inputType="number"
-                    android:enabled="false" />
+                    android:enabled="false"
+                    android:inputType="number" />
 
-                <ScrollView android:layout_weight="2">
-
-                    <TextView
-                        android:id="@+id/dice_d8_rolls"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:ellipsize="end"
-                        android:maxLines="1"
-                        android:textSize="30sp" />
-                </ScrollView>
+                <EditText
+                    android:id="@+id/dice_d8_rolls"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight=".4"
+                    android:enabled="false"
+                    android:inputType="number" />
 
                 <TextView
                     android:id="@+id/dice_d8_subtotal"
-                    android:layout_weight="1"
+                    android:layout_weight="2"
                     android:textAlignment="center"
                     android:textSize="50sp" />
+
+                <Button
+                    android:id="@+id/button_roll_d8"
+                    android:layout_height="wrap_content"
+                    android:layout_width="wrap_content"
+                    android:text="Roll"/>
             </TableRow>
 
             <TableRow
@@ -199,36 +216,39 @@
                     android:id="@+id/dice_d10_image"
                     android:layout_width="wrap_content"
                     android:layout_height="60dp"
-                    android:layout_weight=".5"
                     android:layout_margin="5dp"
+                    android:layout_weight=".5"
                     android:background="@drawable/dice_selected_state"
                     android:textOff="d10"
-                    android:textOn="d10"/>
+                    android:textOn="d10" />
 
                 <EditText
                     android:id="@+id/dice_d10_amount"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight=".5"
-                    android:inputType="number"
-                    android:enabled="false" />
+                    android:enabled="false"
+                    android:inputType="number" />
 
-                <ScrollView android:layout_weight="2">
-
-                    <TextView
-                        android:id="@+id/dice_d10_rolls"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:ellipsize="end"
-                        android:maxLines="1"
-                        android:textSize="30sp" />
-                </ScrollView>
+                <EditText
+                    android:id="@+id/dice_d10_rolls"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight=".4"
+                    android:enabled="false"
+                    android:inputType="number" />
 
                 <TextView
                     android:id="@+id/dice_d10_subtotal"
-                    android:layout_weight="1"
+                    android:layout_weight="2"
                     android:textAlignment="center"
                     android:textSize="50sp" />
+
+                <Button
+                    android:id="@+id/button_roll_d10"
+                    android:layout_height="wrap_content"
+                    android:layout_width="wrap_content"
+                    android:text="Roll"/>
             </TableRow>
 
             <TableRow
@@ -240,36 +260,39 @@
                     android:id="@+id/dice_d12_image"
                     android:layout_width="wrap_content"
                     android:layout_height="60dp"
-                    android:layout_weight=".5"
                     android:layout_margin="5dp"
+                    android:layout_weight=".5"
                     android:background="@drawable/dice_selected_state"
                     android:textOff="d12"
-                    android:textOn="d12"/>
+                    android:textOn="d12" />
 
                 <EditText
                     android:id="@+id/dice_d12_amount"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight=".5"
-                    android:inputType="number"
-                    android:enabled="false" />
+                    android:enabled="false"
+                    android:inputType="number" />
 
-                <ScrollView android:layout_weight="2">
-
-                    <TextView
-                        android:id="@+id/dice_d12_rolls"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:ellipsize="end"
-                        android:maxLines="1"
-                        android:textSize="30sp" />
-                </ScrollView>
+                <EditText
+                    android:id="@+id/dice_d12_rolls"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight=".4"
+                    android:enabled="false"
+                    android:inputType="number" />
 
                 <TextView
                     android:id="@+id/dice_d12_subtotal"
-                    android:layout_weight="1"
+                    android:layout_weight="2"
                     android:textAlignment="center"
                     android:textSize="50sp" />
+
+                <Button
+                    android:id="@+id/button_roll_d12"
+                    android:layout_height="wrap_content"
+                    android:layout_width="wrap_content"
+                    android:text="Roll"/>
             </TableRow>
 
             <TableRow
@@ -281,36 +304,40 @@
                     android:id="@+id/dice_d20_image"
                     android:layout_width="wrap_content"
                     android:layout_height="60dp"
-                    android:layout_weight=".5"
                     android:layout_margin="5dp"
+                    android:layout_weight=".5"
                     android:background="@drawable/dice_selected_state"
                     android:textOff="d20"
-                    android:textOn="d20"/>
+                    android:textOn="d20" />
 
                 <EditText
                     android:id="@+id/dice_d20_amount"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight=".5"
-                    android:inputType="number"
-                    android:enabled="false" />
+                    android:enabled="false"
+                    android:inputType="number" />
 
-                <ScrollView android:layout_weight="2">
 
-                    <TextView
-                        android:id="@+id/dice_d20_rolls"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:ellipsize="end"
-                        android:maxLines="1"
-                        android:textSize="30sp" />
-                </ScrollView>
+                <EditText
+                    android:id="@+id/dice_d20_rolls"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight=".4"
+                    android:enabled="false"
+                    android:inputType="number" />
 
                 <TextView
                     android:id="@+id/dice_d20_subtotal"
-                    android:layout_weight="1"
+                    android:layout_weight="2"
                     android:textAlignment="center"
                     android:textSize="50sp" />
+
+                <Button
+                    android:id="@+id/button_roll_d20"
+                    android:layout_height="wrap_content"
+                    android:layout_width="wrap_content"
+                    android:text="Roll"/>
             </TableRow>
 
             <TableRow
@@ -322,36 +349,40 @@
                     android:id="@+id/dice_d100_image"
                     android:layout_width="wrap_content"
                     android:layout_height="60dp"
-                    android:layout_weight=".5"
                     android:layout_margin="5dp"
+                    android:layout_weight=".5"
                     android:background="@drawable/dice_selected_state"
                     android:textOff="d100"
-                    android:textOn="d100"/>
+                    android:textOn="d100" />
 
                 <EditText
                     android:id="@+id/dice_d100_amount"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight=".5"
-                    android:inputType="number"
-                    android:enabled="false" />
+                    android:enabled="false"
+                    android:inputType="number" />
 
-                <ScrollView android:layout_weight="2">
 
-                    <TextView
-                        android:id="@+id/dice_d100_rolls"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:ellipsize="end"
-                        android:maxLines="1"
-                        android:textSize="30sp" />
-                </ScrollView>
+                <EditText
+                    android:id="@+id/dice_d100_rolls"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight=".4"
+                    android:enabled="false"
+                    android:inputType="number" />
 
                 <TextView
                     android:id="@+id/dice_d100_subtotal"
-                    android:layout_weight="1"
+                    android:layout_weight="2"
                     android:textAlignment="center"
                     android:textSize="50sp" />
+
+                <Button
+                    android:id="@+id/button_roll_d100"
+                    android:layout_height="wrap_content"
+                    android:layout_width="wrap_content"
+                    android:text="Roll"/>
             </TableRow>
 
             <TableRow
@@ -362,25 +393,20 @@
                 <TextView
                     android:id="@+id/dice_total_title"
                     android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
+                    android:layout_height="match_parent"
+                    android:layout_weight=".5"
                     android:text="TOTAL:"
                     android:textAlignment="center"
                     android:textSize="20sp" />
-            </TableRow>
-
-            <TableRow
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:weightSum="1">
 
                 <TextView
                     android:id="@+id/dice_total"
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
-                    android:layout_weight="1"
+                    android:layout_weight=".5"
                     android:textAlignment="center"
                     android:textSize="30sp" />
+
             </TableRow>
         </TableLayout>
     </LinearLayout>

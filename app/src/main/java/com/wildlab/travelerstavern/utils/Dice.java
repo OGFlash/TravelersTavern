@@ -3,13 +3,13 @@ package com.wildlab.travelerstavern.utils;
 import android.content.Context;
 import android.util.Log;
 import android.widget.Checkable;
-import android.widget.ToggleButton;
+import android.widget.CompoundButton;
 
 /**
  * Created by Cory Swaller on 10/17/2017.
  */
 
-public class Dice extends ToggleButton implements Checkable {
+public class Dice extends CompoundButton implements Checkable {
     private static final String TAG = "Dice";
     private boolean diceEnabled = false;
     private int numberOfDice = 0;
