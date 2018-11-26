@@ -1,0 +1,442 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:layout_marginTop="70dp"
+        android:orientation="horizontal">
+
+        <Button
+            android:id="@+id/health_info_rec"
+            android:layout_width="60dp"
+            android:layout_height="35dp"
+            android:layout_marginEnd="5dp"
+            android:layout_marginStart="10dp"
+            android:background="@drawable/info_square_stats"
+            android:fontFamily="sans-serif"
+            android:gravity="top|center"
+            android:text="Health"
+            android:textAlignment="center"
+            android:textColor="#FF0C0C0C"
+            android:textSize="14sp"
+            android:textStyle="bold|italic" />
+
+        <Button
+            android:id="@+id/health_info_rec_current_health"
+            android:layout_width="60dp"
+            android:layout_height="35dp"
+            android:layout_marginEnd="5dp"
+            android:layout_marginStart="5dp"
+            android:background="@drawable/info_square_stats_data"
+            android:gravity="top|center"
+            android:text="Current"
+            android:textAlignment="center"
+            android:textColor="#FF0C0C0C"
+            android:textSize="12sp" />
+
+        <Button
+            android:id="@+id/health_info_rec_damage_taken"
+            android:layout_width="100dp"
+            android:layout_height="35dp"
+            android:layout_marginEnd="5dp"
+            android:layout_marginStart="5dp"
+            android:background="@drawable/info_square_stats_data"
+            android:gravity="top|center"
+            android:text="Damage Taken"
+            android:textAlignment="center"
+            android:textColor="#FF0C0C0C"
+            android:textSize="12sp" />
+
+        <Button
+            android:id="@+id/health_info_rec_walk_speed"
+            android:layout_width="60dp"
+            android:layout_height="35dp"
+            android:layout_marginEnd="4dp"
+            android:layout_marginStart="5dp"
+            android:background="@drawable/info_square_stats"
+            android:gravity="top|center"
+            android:text="Speed"
+            android:textAlignment="center"
+            android:textColor="#FF0C0C0C"
+            android:textSize="12sp" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:layout_marginTop="4dp"
+        android:orientation="horizontal">
+
+        <Button
+            android:id="@+id/ac_info_rec"
+            android:layout_width="60dp"
+            android:layout_height="35dp"
+            android:layout_marginEnd="5dp"
+            android:layout_marginStart="10dp"
+            android:background="@drawable/info_square_stats"
+            android:fontFamily="sans-serif"
+            android:gravity="top|center"
+            android:text="AC"
+            android:textAlignment="center"
+            android:textColor="#FF0C0C0C"
+            android:textSize="14sp"
+            android:textStyle="bold|italic" />
+
+        <Button
+            android:id="@+id/ac_info_rec_current"
+            android:layout_width="60dp"
+            android:layout_height="35dp"
+            android:layout_marginEnd="5dp"
+            android:layout_marginStart="5dp"
+            android:background="@drawable/info_square_stats_data"
+            android:gravity="top|center"
+            android:text="Current"
+            android:textAlignment="center"
+            android:textColor="#FF0C0C0C"
+            android:textSize="12sp" />
+
+        <Button
+            android:id="@+id/ac_info_rec_bonus"
+            android:layout_width="60dp"
+            android:layout_height="35dp"
+            android:layout_marginEnd="5dp"
+            android:layout_marginStart="5dp"
+            android:background="@drawable/info_square_stats_data"
+            android:gravity="top|center"
+            android:text="Bonus"
+            android:textAlignment="center"
+            android:textColor="#FF0C0C0C"
+            android:textSize="12sp" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginTop="10dp">
+
+        <TextView
+            android:id="@+id/title_info_ability_name"
+            android:layout_width="70dp"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="5dp"
+            android:layout_marginStart="5dp"
+            android:fontFamily="sans-serif"
+            android:gravity="top|center"
+            android:text="Ability"
+            android:textAlignment="center"
+            android:textColor="#e1dede"
+            android:textSize="16sp"
+            android:textStyle="bold|italic" />
+
+        <TextView
+            android:id="@+id/title_info_ability_modifier"
+            android:layout_width="70dp"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="5dp"
+            android:gravity="top|center"
+            android:text="Modifier"
+            android:textAlignment="center"
+            android:textColor="#e1dede"
+            android:textSize="16sp"
+            android:textStyle="bold|italic" />
+
+        <TextView
+            android:id="@+id/title_info_ability_temp"
+            android:layout_width="60dp"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="4dp"
+            android:gravity="top|center"
+            android:text="Temp"
+            android:textAlignment="center"
+            android:textColor="#e1dede"
+            android:textSize="16sp"
+            android:textStyle="bold|italic" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:orientation="horizontal">
+
+        <Button
+            android:id="@+id/str_info_rec"
+            android:layout_width="60dp"
+            android:layout_height="35dp"
+            android:layout_marginEnd="5dp"
+            android:layout_marginStart="10dp"
+            android:background="@drawable/info_square_stats"
+            android:fontFamily="sans-serif"
+            android:gravity="center_horizontal"
+            android:text="STR"
+            android:textColor="#FF0C0C0C"
+            android:textSize="14sp"
+            android:textStyle="bold|italic"
+            android:maxLines="2"
+            android:minLines="2"/>
+
+        <Button
+            android:id="@+id/str_info_rec_modifier"
+            android:layout_width="60dp"
+            android:layout_height="35dp"
+            android:layout_marginEnd="5dp"
+            android:layout_marginStart="8dp"
+            android:background="@drawable/info_square_stats_data"
+            android:gravity="top|center"
+            android:textAlignment="center"
+            android:textColor="#FF0C0C0C"
+            android:textSize="12sp" />
+
+        <Button
+            android:id="@+id/str_info_rec_temp"
+            android:layout_width="60dp"
+            android:layout_height="35dp"
+            android:layout_marginEnd="4dp"
+            android:layout_marginStart="6dp"
+            android:background="@drawable/info_square_stats_data"
+            android:gravity="top|center"
+            android:textAlignment="center"
+            android:textColor="#FF0C0C0C"
+            android:textSize="12sp" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:orientation="horizontal">
+
+        <Button
+            android:id="@+id/dex_info_rec"
+            android:layout_width="60dp"
+            android:layout_height="35dp"
+            android:layout_marginEnd="5dp"
+            android:layout_marginStart="10dp"
+            android:background="@drawable/info_square_stats"
+            android:fontFamily="sans-serif"
+            android:gravity="center_horizontal"
+            android:text="DEX"
+            android:textColor="#FF0C0C0C"
+            android:textSize="14sp"
+            android:textStyle="bold|italic" />
+
+        <Button
+            android:id="@+id/dex_info_rec_modifier"
+            android:layout_width="60dp"
+            android:layout_height="35dp"
+            android:layout_marginEnd="5dp"
+            android:layout_marginStart="8dp"
+            android:background="@drawable/info_square_stats_data"
+            android:gravity="top|center"
+            android:textAlignment="center"
+            android:textColor="#FF0C0C0C"
+            android:textSize="12sp" />
+
+        <Button
+            android:id="@+id/dex_info_rec_temp"
+            android:layout_width="60dp"
+            android:layout_height="35dp"
+            android:layout_marginEnd="4dp"
+            android:layout_marginStart="6dp"
+            android:background="@drawable/info_square_stats_data"
+            android:gravity="top|center"
+            android:textAlignment="center"
+            android:textColor="#FF0C0C0C"
+            android:textSize="12sp" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:orientation="horizontal">
+
+
+        <Button
+            android:id="@+id/con_info_rec"
+            android:layout_width="60dp"
+            android:layout_height="35dp"
+            android:layout_marginEnd="5dp"
+            android:layout_marginStart="10dp"
+            android:background="@drawable/info_square_stats"
+            android:fontFamily="sans-serif"
+            android:gravity="center_horizontal"
+            android:text="CON"
+            android:textColor="#FF0C0C0C"
+            android:textSize="14sp"
+            android:textStyle="bold|italic" />
+
+        <Button
+            android:id="@+id/con_info_rec_modifier"
+            android:layout_width="60dp"
+            android:layout_height="35dp"
+            android:layout_marginEnd="5dp"
+            android:layout_marginStart="8dp"
+            android:background="@drawable/info_square_stats_data"
+            android:gravity="top|center"
+            android:textAlignment="center"
+            android:textColor="#FF0C0C0C"
+            android:textSize="12sp" />
+
+        <Button
+            android:id="@+id/con_info_rec_temp"
+            android:layout_width="60dp"
+            android:layout_height="35dp"
+            android:layout_marginEnd="4dp"
+            android:layout_marginStart="6dp"
+            android:background="@drawable/info_square_stats_data"
+            android:gravity="top|center"
+            android:textAlignment="center"
+            android:textColor="#FF0C0C0C"
+            android:textSize="12sp" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:orientation="horizontal">
+
+        <Button
+            android:id="@+id/int_info_rec"
+            android:layout_width="60dp"
+            android:layout_height="35dp"
+            android:layout_marginEnd="5dp"
+            android:layout_marginStart="10dp"
+            android:background="@drawable/info_square_stats"
+            android:fontFamily="sans-serif"
+            android:gravity="center_horizontal"
+            android:text="INT"
+            android:textColor="#FF0C0C0C"
+            android:textSize="14sp"
+            android:textStyle="bold|italic" />
+
+        <Button
+            android:id="@+id/int_info_rec_modifier"
+            android:layout_width="60dp"
+            android:layout_height="35dp"
+            android:layout_marginEnd="5dp"
+            android:layout_marginStart="8dp"
+            android:background="@drawable/info_square_stats_data"
+            android:gravity="top|center"
+            android:textAlignment="center"
+            android:textColor="#FF0C0C0C"
+            android:textSize="12sp" />
+
+        <Button
+            android:id="@+id/int_info_rec_temp"
+            android:layout_width="60dp"
+            android:layout_height="35dp"
+            android:layout_marginEnd="4dp"
+            android:layout_marginStart="6dp"
+            android:background="@drawable/info_square_stats_data"
+            android:gravity="top|center"
+            android:textAlignment="center"
+            android:textColor="#FF0C0C0C"
+            android:textSize="12sp" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:orientation="horizontal">
+
+        <Button
+            android:id="@+id/wis_info_rec"
+            android:layout_width="60dp"
+            android:layout_height="35dp"
+            android:layout_marginEnd="5dp"
+            android:layout_marginStart="10dp"
+            android:background="@drawable/info_square_stats"
+            android:fontFamily="sans-serif"
+            android:gravity="center_horizontal"
+            android:text="WIS"
+            android:textColor="#FF0C0C0C"
+            android:textSize="14sp"
+            android:textStyle="bold|italic" />
+
+        <Button
+            android:id="@+id/wis_info_rec_modifier"
+            android:layout_width="60dp"
+            android:layout_height="35dp"
+            android:layout_marginEnd="5dp"
+            android:layout_marginStart="8dp"
+            android:background="@drawable/info_square_stats_data"
+            android:gravity="top|center"
+            android:textAlignment="center"
+            android:textColor="#FF0C0C0C"
+            android:textSize="12sp" />
+
+        <Button
+            android:id="@+id/wis_info_rec_temp"
+            android:layout_width="60dp"
+            android:layout_height="35dp"
+            android:layout_marginEnd="4dp"
+            android:layout_marginStart="6dp"
+            android:background="@drawable/info_square_stats_data"
+            android:gravity="top|center"
+            android:textAlignment="center"
+            android:textColor="#FF0C0C0C"
+            android:textSize="12sp" />
+
+    </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:orientation="horizontal">
+
+            <Button
+                android:id="@+id/cha_info_rec"
+                android:layout_width="60dp"
+                android:layout_height="35dp"
+                android:layout_marginEnd="5dp"
+                android:layout_marginStart="10dp"
+                android:background="@drawable/info_square_stats"
+                android:fontFamily="sans-serif"
+                android:gravity="center_horizontal"
+                android:text="CHA"
+                android:textColor="#FF0C0C0C"
+                android:textSize="14sp"
+                android:textStyle="bold|italic" />
+
+            <Button
+                android:id="@+id/cha_info_rec_modifier"
+                android:layout_width="60dp"
+                android:layout_height="35dp"
+                android:layout_marginEnd="5dp"
+                android:layout_marginStart="8dp"
+                android:background="@drawable/info_square_stats_data"
+                android:gravity="top|center"
+                android:textAlignment="center"
+                android:textColor="#FF0C0C0C"
+                android:textSize="12sp" />
+
+            <Button
+                android:id="@+id/cha_info_rec_temp"
+                android:layout_width="60dp"
+                android:layout_height="35dp"
+                android:layout_marginEnd="4dp"
+                android:layout_marginStart="6dp"
+                android:background="@drawable/info_square_stats_data"
+                android:gravity="top|center"
+                android:textAlignment="center"
+                android:textColor="#FF0C0C0C"
+                android:textSize="12sp" />
+        </LinearLayout>
+    </LinearLayout>
+
+
+</LinearLayout>
