@@ -17,11 +17,12 @@ import java.util.ArrayList;
 public class DatabaseHelper extends SQLiteOpenHelper {
 
     public static final String DB_NAME = "mancave.db";
-    private static final int DB_VERSION = 1;
+    private static final int DB_VERSION = 2;
 
     public static final String TABLE_NAME = "CHARACTER";
     public static final String COLUMN_ID = "_id";
     public static final String COLUMN_NAME = "NAME";
+    public static final String COLUMN_RACE = "RACE";
     public static final String COLUMN_CLASS = "CLASS";
     public static final String COLUMN_LEVEL = "LEVEL";
     public static final String COLUMN_HEALTH = "HEALTH";
@@ -62,12 +63,20 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     @Override
     public void onUpgrade(SQLiteDatabase sqLiteDatabase, int i, int i1) {
 
+            if(i1 == 3) {
+                sqLiteDatabase.execSQL("ALTER TABLE " + TABLE_NAME + " ADD COLUMN " + COLUMN_RACE + " TEXT");
+            }
+
+
+
+
     }
 
-    public static void insertCharacterFull(SQLiteDatabase db, String name, String className, int level, int health, int ac, int str, int dex, int con, int intel, int wis, int cha, int speed) {
+    public static void insertCharacterFull(SQLiteDatabase db, String name, String race, String className, int level, int health, int ac, int str, int dex, int con, int intel, int wis, int cha, int speed) {
         ContentValues characterValues = new ContentValues();
         characterValues.put(COLUMN_NAME, name);
         characterValues.put(COLUMN_CLASS, className);
+        characterValues.put(COLUMN_RACE, race);
         characterValues.put(COLUMN_LEVEL, level);
         characterValues.put(COLUMN_HEALTH, health);
         characterValues.put(COLUMN_AC, ac);
@@ -86,6 +95,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         dbLocal = this.getReadableDatabase();
         ContentValues basicCharacterValues = new ContentValues();
         basicCharacterValues.put(COLUMN_NAME, character.getName());
+        basicCharacterValues.put(COLUMN_RACE, character.getRace());
         basicCharacterValues.put(COLUMN_CLASS, character.getClassName());
         basicCharacterValues.put(COLUMN_LEVEL, character.getLevel());
         dbLocal.update(TABLE_NAME, basicCharacterValues, COLUMN_ID + " = ?", new String[]{character.getID()});
@@ -103,8 +113,9 @@ public class DatabaseHelper extends SQLiteOpenHelper {
                 characterModel = new Character();
                 characterModel.setID(cursor.getString(0));
                 characterModel.setCharacterName(cursor.getString(1));
+                characterModel.setCharacterRace(cursor.getString(13));
                 characterModel.setCharacterClass(cursor.getString(2));
-                characterModel.setCharacterLevel(cursor.getInt(3));
+                characterModel.setCharacterLevel(cursor.getInt(5));
                 characters.add(characterModel);
             }
         }
@@ -257,6 +268,11 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
 
 
-//   public void delete(){
-//   }
+    public void delete() {
+        dbLocal = this.getWritableDatabase();
+        dbLocal.execSQL("delete from " + TABLE_NAME);
+        dbLocal.close();
+
+    }
+
 }

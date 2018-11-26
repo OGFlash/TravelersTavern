@@ -10,6 +10,7 @@ public class Character {
     private String localname;
     private String localclassType;
     private Integer locallevel;
+    private String localRace;
     private String idLocal;
     private ArrayList<Character> characters = new ArrayList<Character>();
 
@@ -18,6 +19,10 @@ public class Character {
 
     public String getClassName(){
         return localclassType;
+    }
+
+    public String getRace(){
+        return localRace;
     }
 
     public Integer getLevel(){return locallevel;
@@ -33,6 +38,10 @@ public class Character {
 
     public void setCharacterClass(String classType){
         this.localclassType = classType;
+    }
+
+    public void setCharacterRace(String race){
+        this.localRace = race;
     }
 
     public void setCharacterLevel(Integer level){

@@ -34,7 +34,7 @@ public class SpellsFragment extends Fragment {
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, Bundle savedInstanceState) {
-        View rootView =inflater.inflate(R.layout.fragment_build_content, container, false);
+        View rootView =inflater.inflate(R.layout.fragment_spells_content, container, false);
         queryButton = (Button) rootView.findViewById(R.id.queryButton);
         editApi = (EditText) rootView.findViewById(R.id.edit_api);
 

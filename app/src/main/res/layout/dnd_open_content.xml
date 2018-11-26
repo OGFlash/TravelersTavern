@@ -40,7 +40,6 @@
         android:clickable="true"
         android:layout_gravity="bottom|end"
         android:src="@drawable/ic_fab_add"
-        android:backgroundTint="#292929"
         android:elevation="4dp"/>
 
 </android.support.design.widget.CoordinatorLayout>

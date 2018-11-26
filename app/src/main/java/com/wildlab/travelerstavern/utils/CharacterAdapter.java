@@ -28,6 +28,7 @@ public class CharacterAdapter extends RecyclerView.Adapter<CharacterAdapter.View
         public TextView characterName;
         public TextView characterLevel;
         public TextView characterClass;
+        public TextView characterRace;
         public Button selectButton;
         private ArrayList<Character> localArrayListCharacters = new ArrayList<Character>();
         private DatabaseHelper dbHelper;
@@ -36,13 +37,14 @@ public class CharacterAdapter extends RecyclerView.Adapter<CharacterAdapter.View
 
         public ViewHolder(View itemView, Context context, ArrayList<Character> charactersArray) {
             super(itemView);
-            dbHelper = new DatabaseHelper(getContext(), DatabaseHelper.DB_NAME, null, 1);
+            dbHelper = new DatabaseHelper(getContext(), DatabaseHelper.DB_NAME, null, 3);
 
             this.localArrayListCharacters = charactersArray;
             this.ctx = context;
             characterName = (TextView) itemView.findViewById(R.id.character_name);
             characterLevel = (TextView) itemView.findViewById(R.id.character_level);
             characterClass = (TextView) itemView.findViewById(R.id.character_class);
+            characterRace = (TextView) itemView.findViewById(R.id.character_race);
             selectButton = (Button) itemView.findViewById(R.id.selectButton);
             selectButton.setOnClickListener(this);
         }
@@ -60,6 +62,7 @@ public class CharacterAdapter extends RecyclerView.Adapter<CharacterAdapter.View
             Intent intentDD = new Intent(getContext(), DnDActivity.class);
             intentDD.putExtra("name", character.getName());
             intentDD.putExtra("className", character.getClassName());
+            intentDD.putExtra("race", character.getRace());
             intentDD.putExtra("level", character.getLevel());
             intentDD.putExtra("str", dbHelper.getSelectedCharactersStr(character));
             intentDD.putExtra("dex", dbHelper.getSelectedCharactersDex(character));
@@ -101,6 +104,7 @@ public class CharacterAdapter extends RecyclerView.Adapter<CharacterAdapter.View
     public void onBindViewHolder(CharacterAdapter.ViewHolder holder, int position) {
         Character currentData = data.get(position);
         holder.characterName.setText(currentData.getName());
+        holder.characterRace.setText(currentData.getRace());
         holder.characterClass.setText(currentData.getClassName());
         holder.characterLevel.setText(currentData.getLevel().toString());
 

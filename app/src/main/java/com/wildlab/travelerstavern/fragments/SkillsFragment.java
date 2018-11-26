@@ -102,7 +102,7 @@ public class SkillsFragment extends Fragment {
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable final ViewGroup container, Bundle savedInstanceState) {
-        final View rootView =inflater.inflate(R.layout.fragment_describe_content, container, false);
+        final View rootView =inflater.inflate(R.layout.fragment_skills_content, container, false);
         buttonHealthTotal = (Button) rootView.findViewById(R.id.health_info_rec);
         buttonHealthCurrent = (Button) rootView.findViewById(R.id.health_info_rec_current_health);
         buttonHealthDamageTaken = (Button) rootView.findViewById(R.id.health_info_rec_damage_taken);
@@ -129,10 +129,11 @@ public class SkillsFragment extends Fragment {
         chaModifier = (Button) rootView.findViewById(R.id.cha_info_rec_modifier);
         chaTemp = (Button) rootView.findViewById(R.id.cha_info_rec_temp);
 
-        dbHelper = new DatabaseHelper(getContext(), DatabaseHelper.DB_NAME, null, 1);
+        dbHelper = new DatabaseHelper(getContext(), DatabaseHelper.DB_NAME, null, 3);
         characters = dbHelper.getAllCharacterRecords();
 
         String stringName =  getArguments().getString("name");
+        String raceName = getArguments().getString("race");
         String stringClass = getArguments().getString("className");
         Integer stringLevel = getArguments().getInt("level");
 
