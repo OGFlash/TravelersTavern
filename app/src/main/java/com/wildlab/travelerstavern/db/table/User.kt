@@ -18,6 +18,8 @@ import java.util.Date
 data class User(
         @PrimaryKey @ColumnInfo(name = "user_id") var userID: Int,
         @ColumnInfo(name = "user_name") @NonNull var username: String,
+        @ColumnInfo(name = "first_name") @NonNull var firstName: String,
+        @ColumnInfo(name = "last_name") var lastName: String?,
         @ColumnInfo(name = "access_date") var accessDate: Date,
         @ColumnInfo(name = "profile_image") @Ignore var profileImage: Bitmap
 )
