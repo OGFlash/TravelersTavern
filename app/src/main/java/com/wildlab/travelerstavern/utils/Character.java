@@ -5,7 +5,7 @@ import java.util.ArrayList;
 /**
  * Created by Owner on 9/23/2017.
  */
-
+@Deprecated
 public class Character {
     private String localname;
     private String localclassType;
