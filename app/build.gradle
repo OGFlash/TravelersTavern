@@ -26,6 +26,7 @@ android {
 }
 
 dependencies {
+    // Compile
     implementation fileTree(dir: 'libs', include: ['*.jar'])
     implementation"org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
     implementation 'com.android.support:appcompat-v7:28.0.0'
@@ -33,8 +34,12 @@ dependencies {
     implementation 'com.android.support:design:28.0.0'
     implementation 'com.yalantis:flipviewpager:1.0.0'
     implementation "android.arch.persistence.room:runtime:${roomVersion}"
+    implementation "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
+    // Annotation
     kapt "android.arch.persistence.room:compiler:${roomVersion}"
+    // Unit test
     testImplementation 'junit:junit:4.12'
+    // Integration test
     androidTestImplementation 'com.android.support.test:runner:1.0.2'
     androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.2'
     androidTestImplementation "android.arch.persistence.room:testing:${roomVersion}"
