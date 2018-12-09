@@ -16,8 +16,8 @@ import java.util.Date
  */
 @Entity(tableName = "users")
 data class User(
-        @PrimaryKey var userID: Int,
-        @ColumnInfo(name = "username") @NonNull var username: String,
+        @PrimaryKey @ColumnInfo(name = "user_id") var userID: Int,
+        @ColumnInfo(name = "user_name") @NonNull var username: String,
         @ColumnInfo(name = "access_date") var accessDate: Date,
         @ColumnInfo(name = "profile_image") @Ignore var profileImage: Bitmap
 )
