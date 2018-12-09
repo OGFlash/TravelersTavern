@@ -21,7 +21,7 @@ import android.arch.persistence.room.PrimaryKey
         )])
 data class Character(
         @PrimaryKey @ColumnInfo(name = "character_id") var characterId: Int,
-        @ColumnInfo(name = "user_id") var userId: Int,
+        @ColumnInfo(name = "user_id") var userID: Int,
         @ColumnInfo(name = "character_name") var characterName: String,
         @ColumnInfo(name = "character_level") var characterLevel: Int
 )
